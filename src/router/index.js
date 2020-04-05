@@ -84,6 +84,7 @@ const router = new VueRouter({
   base: process.env.BASE_URL,
   routes
 })
+// VueRouterの中に上で定義したroutesが入ってる
 
 router.beforeEach((to, from, next) => {
   const requiresAuth = to.matched.some(record => record.meta.requiresAuth)
