@@ -116,7 +116,6 @@
 <script>
 import firebase from 'firebase/app'
 import 'firebase/auth'
-import {Tweet} from 'vue-tweet-embed'
 /* eslint-disable no-new */
 export default {
   name: 'ScEditor',
@@ -128,9 +127,6 @@ export default {
       slash: '/',
       and: '&'
     }
-  },
-  components: {
-    Tweet: Tweet
   },
   methods: {
     getSoundID () {
