@@ -65,10 +65,10 @@ Vue.use(VueRouter)
       name: 'Main',
       component: Main
     },
-    // {
-    //   path: '*',
-    //   redirect: '/'
-    // }
+    {
+      path: '*',
+      redirect: '/'
+    }
     // {
     //   path: '/about',
     //   name: 'About',
