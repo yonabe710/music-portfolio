@@ -14,7 +14,10 @@ import 'firebase/auth'
 
 Vue.use(VueRouter)
 
-  const routes = [
+const router = new VueRouter({
+  mode: 'history',
+  base: process.env.BASE_URL,
+  routes: [
     {
       path: '/mypage',
       name: 'MyPage',
@@ -78,12 +81,8 @@ Vue.use(VueRouter)
     //   component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
     // }
   ]
-
-const router = new VueRouter({
-  mode: 'history',
-  base: process.env.BASE_URL,
-  routes
 })
+
 // VueRouterの中に上で定義したroutesが入ってる
 
 router.beforeEach((to, from, next) => {
