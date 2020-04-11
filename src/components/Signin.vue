@@ -17,8 +17,12 @@ import 'firebaseui/dist/firebaseui.css'
 
 export default {
   name: 'Signin',
-  created () {
-    const ui = new firebaseui.auth.AuthUI(firebase.auth())
+  mounted () {
+    let ui = firebaseui.auth.AuthUI.getInstance()
+    if (!ui) {
+      ui = new firebaseui.auth.AuthUI(firebase.auth())
+    }
+    // const ui = new firebaseui.auth.AuthUI(firebase.auth())
     const uiConfig = {
       callbacks: {
         signInSuccessWithAuthResult: function (authResult, redirectUrl) {
