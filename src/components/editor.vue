@@ -43,13 +43,14 @@
       <section class="hero is-light">
         <div class="hero-body">
           <div class="container">
+            <router-link to="/mypage"><button type=“submit” @click="sendItem" >save</button></router-link>
             <h1 class="title">
               Profile
             </h1>
-           <h2 class="subtitle">
+            <h2 class="subtitle">
               {{profile}}
               <textarea v-model = "profile"></textarea>
-              <router-link to="/mypage"><button type=“submit” @click="sendItem" >save</button></router-link>
+              <!-- <router-link to="/mypage"><button type=“submit” @click="sendItem" >save</button></router-link> -->
             </h2>
             <ul class="follow">
               <li><a href="https://twitter.com/k_onshitsu" class="flowbtn7 fl_tw7"><i><font-awesome-icon :icon = "['fab','twitter']"></font-awesome-icon></i></a></li>
@@ -68,7 +69,7 @@
               </div>
               <textarea v-model = "yturl"></textarea>
               <button type=“submit” @click="getVideoID">change</button>
-              <router-link to="/mypage"><button type=“submit” @click="sendItem" >save</button></router-link>
+              <!-- <router-link to="/mypage"><button type=“submit” @click="sendItem" >save</button></router-link> -->
             </article>
 
             
@@ -78,7 +79,7 @@
                 <Tweet :id="tweetID" :key="tweetID"></Tweet>
               <textarea v-model = "twurl"></textarea>
               <button type=“submit” @click="getTweetID">change</button>
-              <router-link to="/mypage"><button type=“submit” @click="sendItem" >save</button></router-link>
+              <!-- <router-link to="/mypage"><button type=“submit” @click="sendItem" >save</button></router-link> -->
               </div>
             </article>
           </div>
@@ -91,7 +92,7 @@
                 <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" :src="`https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/${this.soundID}&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true`"></iframe>
                 <textarea v-model = "scurl"></textarea>
                 <button type=“submit” @click="getSoundID">change</button>
-                <router-link to="/mypage"><button type=“submit” @click="sendItem" >save</button></router-link>
+                <!-- <router-link to="/mypage"><button type=“submit” @click="sendItem" >save</button></router-link> -->
                 <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/633309999&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
                 <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/568198284&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
                 <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/679809245&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>

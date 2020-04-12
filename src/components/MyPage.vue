@@ -27,9 +27,9 @@
         <template slot="end">
             <b-navbar-item tag="div">
                 <div class="buttons">
-                    <!-- <router-link to="/" class="button is-primary">
-                      <strong>Home</strong>
-                    </router-link> -->
+                    <router-link to="/editor" class="button is-primary">
+                      <strong>Edit</strong>
+                    </router-link>
                     <router-link to="/signin" class="button is-light">
                       <strong>Sign in</strong>
                     </router-link>
@@ -49,7 +49,7 @@
             <h2 class="subtitle">
               {{profile}}
             </h2>
-            <router-link to='/pfeditor'><button type=“button”>edit</button></router-link>
+            <!-- <router-link to='/pfeditor'><button type=“button”>edit</button></router-link> -->
             <ul class="follow">
               <li><a href="https://twitter.com/k_onshitsu" class="flowbtn7 fl_tw7"><i><font-awesome-icon :icon = "['fab','twitter']"></font-awesome-icon></i></a></li>
               <li><a href="https://www.youtube.com/channel/UCoOnBhAiccYdkJUbgwdorxg/" class="flowbtn7 fl_yu7"><i><font-awesome-icon :icon = "['fab','youtube']"></font-awesome-icon></i></a></li>
@@ -67,7 +67,7 @@
                   <iframe width="854" height="480" :src="this.videoID" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
               </div>
-              <router-link to='/yteditor/'><button type=“button”>edit</button></router-link>
+              <!-- <router-link to='/yteditor/'><button type=“button”>edit</button></router-link> -->
             </article>
             <article class="tile is-child notification is-light">
               <p class="title">Twitter</p>
@@ -75,7 +75,7 @@
               <div class="content" style="width:832px;" :options="{ cards: 'hidden' }">
                 <Tweet :id="tweetID" :key="tweetID"></Tweet>
               </div>
-              <router-link to='/tweditor'><button type=“button”>edit</button></router-link>
+              <!-- <router-link to='/tweditor'><button type=“button”>edit</button></router-link> -->
             </article>
           </div>
           <div class="tile is-parent">
@@ -84,7 +84,7 @@
                 <p class="title">Sound sample</p>
                 <div class="soundcloud">
                 <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" :src="`https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/${this.soundID}&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true`"></iframe>
-                <router-link to='/sceditor'><button type=“button”>edit</button></router-link>
+                <!-- <router-link to='/sceditor'><button type=“button”>edit</button></router-link> -->
                 <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/633309999&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
                 <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/568198284&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
                 <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/679809245&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
