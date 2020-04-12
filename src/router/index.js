@@ -8,6 +8,7 @@ import pfEditor from '@/components/pfEditor'
 import ytEditor from '@/components/ytEditor'
 import twEditor from '@/components/twEditor'
 import scEditor from '@/components/scEditor'
+import editor from '@/components/editor'
 import firebase from 'firebase/app'
 import 'firebase/auth'
 
@@ -58,6 +59,12 @@ const router = new VueRouter({
       component: scEditor,
       meta: { requiresAuth: true }
     },
+    {
+      path: '/editor',
+      name:'Editor',
+      component: editor,
+      meta: { requiresAuth: true }
+    },
     // {
     //   path: '/',
     //   name: 'Main',
@@ -83,7 +90,6 @@ const router = new VueRouter({
   ]
 })
 
-// VueRouterの中に上で定義したroutesが入ってる
 
 router.beforeEach((to, from, next) => {
   const requiresAuth = to.matched.some(record => record.meta.requiresAuth)
