@@ -2,11 +2,11 @@
   <div id="container">
     <header class="header">
       <b-navbar class = "notification is-success">
-        <template slot="brand">
+        <!-- <template slot="brand">
             <b-navbar-item tag="router-link" :to="{ path: '/' }">
                   <img src="@/assets/IMG_4168.jpg">
             </b-navbar-item>
-        </template>
+        </template> -->
         <template slot="start">
             <b-navbar-item href="#">
                 Home
