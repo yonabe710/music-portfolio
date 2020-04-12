@@ -28,7 +28,7 @@
             <b-navbar-item tag="div">
                 <div class="buttons">
                     <router-link to="/mypage" class="button is-primary">
-                      <strong>Home</strong>
+                      <strong>Mypage</strong>
                     </router-link>
                     <router-link to="/signin" class="button is-light">
                       <strong>Sign in</strong>
