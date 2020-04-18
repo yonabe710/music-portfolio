@@ -68,14 +68,17 @@
               </div>
             </article>
             <article class="tile is-child notification is-light">
+              <p class="title">Instagram</p>
+            </article>
+          </div>
+          <div class="tile is-parent is-vertical is-4">
+            <article class="tile is-child notification is-light">
               <p class="title">Twitter</p>
               <div class="content" style="width:832px;" :options="{ cards: 'hidden' }">
                     <!-- Content -->
                 <Tweet :id="tweetID" :key="tweetID"></Tweet>
               </div>
             </article>
-          </div>
-          <div class="tile is-parent">
             <article class="tile is-child notification is-light">
               <div class="content">
                 <p class="title">Sound sample</p>
