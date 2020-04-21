@@ -59,7 +59,7 @@
       </section>
         <div class="tile">
           <div class="tile is-parent is-vertical is-8">
-            <article class="tile is-child notification is-light">
+            <article class="tile is-child notification is-primary">
               <p class="title">YouTube</p>
               <div class="content">
                 <div class="movie-wrap">
