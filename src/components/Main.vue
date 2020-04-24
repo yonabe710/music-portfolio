@@ -59,7 +59,7 @@
       </section>
         <div class="tile">
           <div class="tile is-parent is-vertical is-8">
-            <article class="tile is-child notification is-primary">
+            <article class="tile is-child notification has-text-youtube">
               <p class="title">YouTube</p>
               <div class="content">
                 <div class="movie-wrap">
@@ -67,19 +67,19 @@
                 </div>
               </div>
             </article>
-            <article class="tile is-child notification is-light">
+            <article class="tile is-child notification is-light has-text-instagram">
               <p class="title">Instagram</p>
             </article>
           </div>
           <div class="tile is-parent is-vertical is-4">
-            <article class="tile is-child notification is-light">
+            <article class="tile is-child notification is-light has-text-twitter">
               <p class="title">Twitter</p>
               <div class="content" style="width:832px;" :options="{ cards: 'hidden' }">
                     <!-- Content -->
                 <Tweet :id="tweetID" :key="tweetID"></Tweet>
               </div>
             </article>
-            <article class="tile is-child notification is-light">
+            <article class="tile is-child notification is-light has-text-soundcloud">
               <div class="content">
                 <p class="title">Sound sample</p>
                 <div class="soundcloud">
@@ -181,7 +181,15 @@ a {
 }
 
 #container{
-  background-color: #dcdcdc;
+  background-color: #A9F5F2;
+}
+
+.tile is-child notification is-youtube{
+  
+}
+
+.footer{
+  background-color: #A9F5F2;
 }
 
 /* -----------------------フォローボタンのstylesheet----------------------------- */
