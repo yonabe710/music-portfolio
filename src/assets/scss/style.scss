@@ -4,6 +4,8 @@
 // Set your colors
 $primary: #A9F5F2;
 $primary-invert: findColorInvert($primary);
+$gainsboro: #dcdcdc;
+$gainsboro-invert: findColorInvert($gainsboro);
 $youtube: #F78181;
 $youtube-invert:findColorInvert($youtube);
 $twitter: #4099FF;
@@ -20,6 +22,7 @@ $colors: (
     "light": ($light, $light-invert),
     "dark": ($dark, $dark-invert),
     "primary": ($primary, $primary-invert),
+    "gainsboro": ($gainsboro, $gainsboro-invert),
     "info": ($info, $info-invert),
     "success": ($success, $success-invert),
     "warning": ($warning, $warning-invert),

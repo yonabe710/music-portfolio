@@ -40,7 +40,7 @@
     </header>
 
     <div id="main">
-      <section class="hero is-light">
+      <section class="hero is-gainsboro">
         <div class="hero-body">
           <div class="container">
             <h1 class="title">
@@ -59,7 +59,7 @@
       </section>
         <div class="tile">
           <div class="tile is-parent is-vertical is-8">
-            <article class="tile is-child notification has-text-youtube">
+            <article class="tile is-child notification is-gainsboro">
               <p class="title">YouTube</p>
               <div class="content">
                 <div class="movie-wrap">
@@ -67,19 +67,19 @@
                 </div>
               </div>
             </article>
-            <article class="tile is-child notification is-light has-text-instagram">
+            <article class="tile is-child notification is-gainsboro">
               <p class="title">Instagram</p>
             </article>
           </div>
           <div class="tile is-parent is-vertical is-4">
-            <article class="tile is-child notification is-light has-text-twitter">
+            <article class="tile is-child notification is-gainsboro">
               <p class="title">Twitter</p>
               <div class="content" style="width:832px;" :options="{ cards: 'hidden' }">
                     <!-- Content -->
                 <Tweet :id="tweetID" :key="tweetID"></Tweet>
               </div>
             </article>
-            <article class="tile is-child notification is-light has-text-soundcloud">
+            <article class="tile is-child notification is-gainsboro">
               <div class="content">
                 <p class="title">Sound sample</p>
                 <div class="soundcloud">
@@ -181,15 +181,11 @@ a {
 }
 
 #container{
-  background-color: #A9F5F2;
-}
-
-.tile is-child notification is-youtube{
-  
+  background-color: #dcdcdc;
 }
 
 .footer{
-  background-color: #A9F5F2;
+  background-color: #dcdcdc;
 }
 
 /* -----------------------フォローボタンのstylesheet----------------------------- */
@@ -278,8 +274,8 @@ font-size:26px;
   background-color: #dcdcdc
 }
 
-.tile.is-child{
+/* .tile.is-child{
   box-shadow: 5px 5px 5px 5px rgba(0,0,0,0.4);
-}
+} */
 
 </style>
