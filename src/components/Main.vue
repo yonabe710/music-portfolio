@@ -40,7 +40,7 @@
     </header>
 
     <div id="main">
-      <section class="hero is-gainsboro">
+      <section class="hero is-light">
         <div class="hero-body">
           <div class="container">
             <h1 class="title">
@@ -74,14 +74,14 @@
           <div class="tile is-parent is-vertical is-4">
             <article class="tile is-child notification is-gainsboro">
               <p class="title">Twitter</p>
-              <div class="content" style="width:832px;" :options="{ cards: 'hidden' }">
+              <div class="content" style="width:500px;" :options="{ cards: 'hidden' }">
                     <!-- Content -->
                 <Tweet :id="tweetID" :key="tweetID"></Tweet>
               </div>
             </article>
             <article class="tile is-child notification is-gainsboro">
+              <p class="title">Sound sample</p>
               <div class="content">
-                <p class="title">Sound sample</p>
                 <div class="soundcloud">
                 <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" :src="`https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/${this.soundID}&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true`"></iframe>
                 <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/633309999&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
@@ -188,6 +188,10 @@ a {
   background-color: #dcdcdc;
 }
 
+.title{
+  text-decoration: underline;
+}
+
 /* -----------------------フォローボタンのstylesheet----------------------------- */
 .follow{
   text-align : right;
@@ -266,8 +270,11 @@ font-size:26px;
   left: 20px;
   width: 100%;
   height: 100%;
+  border: solid 3px #000000;
 }
-
+.content{
+  border: solid 3px #000000;
+}
 .soundcloud{
   margin-top: 50px;
   padding: 30px 10px;
