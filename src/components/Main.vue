@@ -61,11 +61,11 @@
           <div class="tile is-parent is-vertical is-8">
             <article class="tile is-child notification is-gainsboro">
               <p class="title">YouTube</p>
-              <div class="content">
+              <!-- <div class="content"> -->
                 <div class="movie-wrap">
                   <iframe width="854" height="480" :src="this.videoID" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
-              </div>
+              <!-- </div> -->
             </article>
             <article class="tile is-child notification is-gainsboro">
               <p class="title">Instagram</p>
@@ -74,24 +74,20 @@
           <div class="tile is-parent is-vertical is-4">
             <article class="tile is-child notification is-gainsboro">
               <p class="title">Twitter</p>
-              <div class="content" style="width:500px;" :options="{ cards: 'hidden' }">
-                    <!-- Content -->
+              <div class="twitter-content" style="width:500px;">
                 <Tweet :id="tweetID" :key="tweetID"></Tweet>
               </div>
             </article>
             <article class="tile is-child notification is-gainsboro">
               <p class="title">Sound sample</p>
-              <div class="content">
+              <!-- <div class="content"> -->
                 <div class="soundcloud">
                 <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" :src="`https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/${this.soundID}&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true`"></iframe>
                 <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/633309999&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
                 <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/568198284&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
                 <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/679809245&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
                 </div>
-                <div class="content">
-                  <!-- Content -->
-                </div>
-              </div>
+              <!-- </div> -->
             </article>
           </div>
         </div>
@@ -192,6 +188,11 @@ a {
   text-decoration: underline;
 }
 
+.twitter-content{
+  background-color:#fff;
+  margin: auto;
+}
+
 /* -----------------------フォローボタンのstylesheet----------------------------- */
 .follow{
   text-align : right;
@@ -272,13 +273,14 @@ font-size:26px;
   height: 100%;
   border: solid 3px #000000;
 }
-.content{
+.twitter-content{
   border: solid 3px #000000;
 }
 .soundcloud{
   margin-top: 50px;
   padding: 30px 10px;
-  background-color: #dcdcdc
+  background-color: #fff;
+  border: solid 3px #000000;
 }
 
 /* .tile.is-child{
