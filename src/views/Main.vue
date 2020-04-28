@@ -268,7 +268,7 @@ font-size:26px;
 .movie-wrap iframe {
   position: absolute;
   top: 0;
-  left: 20px;
+  left: 0px;
   width: 100%;
   height: 100%;
   border: solid 3px #000000;

@@ -60,7 +60,7 @@
       </section>
         <div class="tile">
           <div class="tile is-parent is-vertical is-8">
-            <article class="tile is-child notification is-light">
+            <article class="tile is-child notification is-gainsboro">
               <p class="title">YouTube</p>
               <div class="content">
                 <div class="movie-wrap">
@@ -69,18 +69,20 @@
               </div>
               <!-- <router-link to='/yteditor/'><button type=“button”>edit</button></router-link> -->
             </article>
-            <article class="tile is-child notification is-light">
-              <p class="title">Twitter</p>
-                <!-- Content -->
-              <div class="content" style="width:832px;" :options="{ cards: 'hidden' }">
-                <Tweet :id="tweetID" :key="tweetID"></Tweet>
-              </div>
-              <!-- <router-link to='/tweditor'><button type=“button”>edit</button></router-link> -->
+            <article class="tile is-child notification is-gainsboro">
+              <p class="title">Instagram</p>
             </article>
           </div>
-          <div class="tile is-parent">
-            <article class="tile is-child notification is-light">
-              <div class="content">
+          <div class="tile is-parent is-vertical is-4">
+            <article class="tile is-child notification is-gainsboro">
+                <p class="title">Twitter</p>
+                  <!-- Content -->
+                <div class="twitter-content" style="width:500px;">
+                  <Tweet :id="tweetID" :key="tweetID"></Tweet>
+                </div>
+                <!-- <router-link to='/tweditor'><button type=“button”>edit</button></router-link> -->
+            </article>
+            <article class="tile is-child notification is-gainsboro">
                 <p class="title">Sound sample</p>
                 <div class="soundcloud">
                 <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" :src="`https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/${this.soundID}&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true`"></iframe>
@@ -89,10 +91,6 @@
                 <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/568198284&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
                 <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/679809245&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
                 </div>
-                <div class="content">
-                  <!-- Content -->
-                </div>
-              </div>
             </article>
           </div>
         </div>
@@ -180,6 +178,19 @@ a {
   background-color: #dcdcdc;
 }
 
+.footer{
+  background-color: #dcdcdc;
+}
+
+.title{
+  text-decoration: underline;
+}
+
+.twitter-content{
+  background-color:#fff;
+  margin: auto;
+}
+
 /* -----------------------フォローボタンのstylesheet----------------------------- */
 .follow{
   text-align : right;
@@ -255,21 +266,23 @@ font-size:26px;
 .movie-wrap iframe {
   position: absolute;
   top: 0;
-  left: 20px;
+  left: 0px;
   width: 100%;
   height: 100%;
+  border: solid 3px #000000;
 }
-.EmbeddedTweet {
-  max-width: 832px;
+.twitter-content{
+  border: solid 3px #000000;
 }
 .soundcloud{
   margin-top: 50px;
   padding: 30px 10px;
-  background-color: #dcdcdc
+  background-color: #fff;
+  border: solid 3px #000000;
 }
 
-.tile.is-child{
+/* .tile.is-child{
   box-shadow: 5px 5px 5px 5px rgba(0,0,0,0.4);
-}
+} */
 
 </style>
