@@ -137,32 +137,24 @@ export default {
       scurl: 'Soundcloudのリンク',
       soundID: '666328004',
       userid: firebase.auth().currentUser.uid,
-      db: firebase.firestore(),
       slash: '/',
       and: '&'
     }
   },
   created () {
     let self = this
-    const collectionRef = this.db.collection('uid')
-    const docRef = collectionRef.where('twuserid', '==', this.$route.params.id)
-    docRef.get().then(function (querySnapshot) {
-      querySnapshot.forEach(doc => {
-        if (doc.exists) {
-          console.log('Document data:', doc.data().pfcontent)
-          console.log('Document data:', doc.data().yturl)
-          console.log('Document data:', doc.data().twid)
-          console.log('Document data:', doc.data().scid)
-          console.log(self.$route.params.id)
-          self.profile = doc.data().pfcontent
-          self.videoID = doc.data().yturl
-          self.tweetID = doc.data().twid
-          self.soundID = doc.data().scid
-        } else {
-          // doc.data() will be undefined in this case
-          console.log('No such document!')
-        }
-      })
+    const db = firebase.firestore()
+    var docRef = db.collection('uid').doc(this.userid)
+    docRef.get().then(function (doc) {
+      if (doc.exists) {
+        self.profile = doc.data().pfcontent
+        self.videoID = doc.data().yturl
+        self.tweetID = doc.data().twid
+        self.soundID = doc.data().scid
+      } else {
+      // doc.data() will be undefined in this case
+        console.log('No such document!')
+      }
     }).catch(function (error) {
       console.log('Error getting document:', error)
     })
