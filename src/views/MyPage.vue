@@ -67,7 +67,6 @@
                   <iframe width="854" height="480" :src="this.videoID" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
               </div>
-              <!-- <router-link to='/yteditor/'><button type=“button”>edit</button></router-link> -->
             </article>
             <article class="tile is-child notification is-gainsboro">
               <p class="title">Instagram</p>
@@ -80,7 +79,6 @@
                 <div class="twitter-content" style="width:500px;">
                   <Tweet :id="tweetID" :key="tweetID"></Tweet>
                 </div>
-                <!-- <router-link to='/tweditor'><button type=“button”>edit</button></router-link> -->
             </article>
             <article class="tile is-child notification is-gainsboro">
                 <p class="title">Sound sample</p>
@@ -100,9 +98,8 @@
       <div class="tile">
         <div class="tile is-parent is-vertical">
             <article class="tile is-child notification is-light">
-              <p class="title">sairilab</p>
               <div class="content">
-                <!-- Content -->
+                <p class="title">sairilab</p>
               </div>
             </article>
         </div>
