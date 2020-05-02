@@ -228,7 +228,7 @@ export default {
     sendSoundID () {
       this.db.collection('uid').doc(this.userid).set({
         scid: `${this.soundID}`
-      })
+      },{merge: true})
         .then(function () {
           console.log('Document successfully written!')
         })
