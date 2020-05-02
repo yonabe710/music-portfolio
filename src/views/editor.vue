@@ -132,7 +132,7 @@ export default {
       profile: '',
       yturl: 'YouTubeのURL',
       videoID: '',
-      twurl: 'Tweetのリンク',
+      twurl: 'Tweetのリンクです',
       tweetID: '1096038493417959424',
       scurl: 'Soundcloudのリンク',
       soundID: '666328004',
