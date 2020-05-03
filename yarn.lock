@@ -4508,7 +4508,7 @@ hex-color-regex@^1.1.0:
   resolved "https://registry.npm.taobao.org/hex-color-regex/download/hex-color-regex-1.1.0.tgz#4c06fccb4602fe2602b3c93df82d7e7dbf1a8a8e"
   integrity sha1-TAb8y0YC/iYCs8k9+C1+fb8aio4=
 
-highlight.js@^9.6.0:
+highlight.js@^9.13.1, highlight.js@^9.6.0:
   version "9.18.1"
   resolved "https://registry.npm.taobao.org/highlight.js/download/highlight.js-9.18.1.tgz?cache=0&sync_timestamp=1583811428520&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fhighlight.js%2Fdownload%2Fhighlight.js-9.18.1.tgz#ed21aa001fe6252bb10a3d76d47573c6539fe13c"
   integrity sha1-7SGqAB/mJSuxCj121HVzxlOf4Tw=
@@ -8944,10 +8944,24 @@ vue-eslint-parser@^7.0.0:
     esquery "^1.0.1"
     lodash "^4.17.15"
 
+vue-hljs@^1.1.2:
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/vue-hljs/-/vue-hljs-1.1.2.tgz#d6639e30964d1accb316f33b4e3266edc1e6012d"
+  integrity sha512-KRNdqY8Z54Tn6M34azYmKybW9YL5uhAnjpRTkIaxJOP2e0jkGkTBXzkYJFOFwBC+lWj+1SBs5PLvc6O3RKhpsQ==
+  dependencies:
+    highlight.js "^9.13.1"
+
 vue-hot-reload-api@^2.3.0:
   version "2.3.4"
   resolved "https://registry.npm.taobao.org/vue-hot-reload-api/download/vue-hot-reload-api-2.3.4.tgz#532955cc1eb208a3d990b3a9f9a70574657e08f2"
   integrity sha1-UylVzB6yCKPZkLOp+acFdGV+CPI=
+
+vue-instagram-embed@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/vue-instagram-embed/-/vue-instagram-embed-1.0.0.tgz#d32d3b1fbd4738eeeab6b7a6a80c6d29a1ba24c5"
+  integrity sha512-sQAa4ew6g4OE20XQzc/uYw40jFOoIFSFpfqvhaKNpgkQkBG5aNRxqdLsgAJtXAj2Q2H9kvQ/xxbiLGoQTrIsbQ==
+  dependencies:
+    vue-hljs "^1.1.2"
 
 vue-loader@^15.9.1:
   version "15.9.1"
