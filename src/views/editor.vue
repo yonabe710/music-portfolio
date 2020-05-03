@@ -64,7 +64,7 @@
           <article class="tile is-child notification is-gainsboro">
             <p class="title">YouTube</p>
             <div class = "movie-wrap">
-              <iframe id = "player"  width="854" height="400" :src="`https://youtube.com/embed/${videoID}`" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              <iframe id = "player"  width="854" height="400" :src="this.videoID" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
             <textarea v-model = "yturl"></textarea>
             <button type=“submit” @click="getVideoID">change</button>
@@ -137,16 +137,21 @@ export default {
       scurl: 'Soundcloudのリンク',
       soundID: '666328004',
       userid: firebase.auth().currentUser.uid,
+      db: firebase.firestore(),
       slash: '/',
       and: '&'
     }
   },
   created () {
     let self = this
-    const db = firebase.firestore()
+    var db = firebase.firestore()
     var docRef = db.collection('uid').doc(this.userid)
     docRef.get().then(function (doc) {
       if (doc.exists) {
+        console.log('Document data:', doc.data().pfcontent)
+        console.log('Document data:', doc.data().yturl)
+        console.log('Document data:', doc.data().twid)
+        console.log('Document data:', doc.data().scid)
         self.profile = doc.data().pfcontent
         self.videoID = doc.data().yturl
         self.tweetID = doc.data().twid
@@ -175,11 +180,12 @@ export default {
         })
     },
     getVideoID () {
-      this.videoID = this.$youtube.getIdFromURL(this.yturl)
+      // console.log(this.$youtube.getIdFromURL(this.yturl))
+      this.videoID = `https://youtube.com/embed/${this.$youtube.getIdFromURL(this.yturl)}`
     },
     sendVideoID () {
       this.db.collection('uid').doc(this.userid).set({
-        yturl: `https://youtube.com/embed/${this.videoID}`
+        yturl: `${this.videoID}`
       },{merge: true})
         .then(function () {
           console.log('Document successfully written!')
