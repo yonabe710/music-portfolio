@@ -69,6 +69,9 @@
             </article>
             <article class="tile is-child notification is-gainsboro">
               <p class="title">Instagram</p>
+              <div class="instagram-content">
+                <instagram-embed :url="'https://www.instagram.com/p/B_sNgDUjrbA/'" :max-width=500 />
+              </div>
             </article>
           </div>
           <div class="tile is-parent is-vertical is-4">
@@ -112,6 +115,7 @@
 import firebase from 'firebase/app'
 import 'firebase/auth'
 import {Tweet} from 'vue-tweet-embed'
+import InstagramEmbed from 'vue-instagram-embed'
 
 export default {
   name: 'Main',
@@ -126,7 +130,8 @@ export default {
     }
   },
   components: {
-    Tweet: Tweet
+    Tweet: Tweet,
+    InstagramEmbed
   },
   created () {
     let self = this
@@ -171,6 +176,10 @@ li {
 a {
   color: #42b983;
 }
+/* 
+.tile.is-parent.is-vertical.is-8{
+  height :2000px;
+} */
 
 .notification.is-success{
   height: 50px
@@ -180,17 +189,17 @@ a {
   background-color: #dcdcdc;
 }
 
+.hero-body{
+  height: 200px
+}
+
 .footer{
+  height: 100px;
   background-color: #dcdcdc;
 }
 
 .title{
   text-decoration: underline;
-}
-
-.twitter-content{
-  background-color:#fff;
-  margin: auto;
 }
 
 /* -----------------------フォローボタンのstylesheet----------------------------- */
@@ -274,6 +283,18 @@ font-size:26px;
   border: solid 3px #000000;
 }
 .twitter-content{
+  background-color:#fff;
+  margin: auto;
+  border: solid 3px #000000;
+}
+.instagram-content{
+  height: 1000px;
+  margin: auto;
+}
+.instagram-embed{
+  position: absolute;
+  top: 0;
+  left: 0px;
   border: solid 3px #000000;
 }
 .soundcloud{
