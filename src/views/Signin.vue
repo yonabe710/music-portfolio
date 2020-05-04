@@ -35,7 +35,7 @@ export default {
           var db = firebase.firestore()
           db.collection('uid').doc(userid).set({
             twuserid: `${twuserid}`
-          })
+          },{merge: true})
             .then(function () {
               console.log(twuserid)
             })
