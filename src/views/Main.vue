@@ -3,25 +3,26 @@
     <header class="header">
       <b-navbar class = "notification is-success">
         <!-- <template slot="brand">
-            <b-navbar-item tag="router-link" :to="{ path: '/' }">
-                  <img src="@/assets/IMG_4168.jpg">
-            </b-navbar-item>
         </template> -->
         <template slot="start">
-            <b-navbar-item href="#">
-                Home
-            </b-navbar-item>
-            <b-navbar-item href="#">
-                Documentation
-            </b-navbar-item>
-            <b-navbar-dropdown label="Info">
-                <b-navbar-item href="#">
-                    About
-                </b-navbar-item>
-                <b-navbar-item href="#">
-                    Contact
-                </b-navbar-item>
-            </b-navbar-dropdown>
+          <b-navbar-item href="`https://twitter.com/${this.$route.params.id}`">
+              <img :src= this.twitterthumbnail class="thumbnail">
+              <h2 class="userid">{{this.$route.params.id}}</h2>
+          </b-navbar-item>
+          <b-navbar-item href="#">
+              Home
+          </b-navbar-item>
+          <b-navbar-item href="#">
+              Documentation
+          </b-navbar-item>
+          <b-navbar-dropdown label="Info">
+              <b-navbar-item href="#">
+                  About
+              </b-navbar-item>
+              <b-navbar-item href="#">
+                  Contact
+              </b-navbar-item>
+          </b-navbar-dropdown>
         </template>
 
         <template slot="end">
@@ -70,7 +71,7 @@
             <article class="tile is-child notification is-gainsboro">
               <p class="title">Instagram</p>
               <div class="instagram-content">
-                <instagram-embed :url="'https://www.instagram.com/p/B_sNgDUjrbA/'" :max-width=500 />
+                <instagram-embed :url="'https://www.instagram.com/p/B_w591uDjnD/?utm_source=ig_web_copy_link'" :max-width=500 :class-name="embed"></instagram-embed>
               </div>
             </article>
           </div>
@@ -125,8 +126,8 @@ export default {
       videoID: '',
       tweetID: '',
       soundID: '',
-      slash: '/'
-      // userid: firebase.auth().currentUser.uid
+      twitterthumbnail: '',
+      slash: '/',
     }
   },
   components: {
@@ -145,11 +146,13 @@ export default {
           console.log('Document data:', doc.data().yturl)
           console.log('Document data:', doc.data().twid)
           console.log('Document data:', doc.data().scid)
+          console.log('Document data:', doc.data().twphotourl)
           console.log(self.$route.params.id)
           self.profile = doc.data().pfcontent
           self.videoID = doc.data().yturl
           self.tweetID = doc.data().twid
           self.soundID = doc.data().scid
+          self.twitterthumbnail = doc.data().twphotourl
         } else {
           // doc.data() will be undefined in this case
           console.log('No such document!')
@@ -175,11 +178,13 @@ li {
 }
 a {
   color: #42b983;
+  margin: 0px; 
+  top: 0px;
 }
-/* 
-.tile.is-parent.is-vertical.is-8{
-  height :2000px;
-} */
+
+.thumbnail{
+  padding-right: 5px;
+}
 
 .notification.is-success{
   height: 50px
@@ -290,11 +295,13 @@ font-size:26px;
 .instagram-content{
   height: 1000px;
   margin: auto;
+  box-sizing: border-box;
 }
 .instagram-embed{
   position: absolute;
   top: 0;
   left: 0px;
+  height: 1000px;
   border: solid 3px #000000;
 }
 .soundcloud{

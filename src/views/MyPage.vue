@@ -2,11 +2,11 @@
   <div id="container">
     <header class="header">
       <b-navbar class = "notification is-success">
-        <!-- <template slot="brand">
-            <b-navbar-item tag="router-link" :to="{ path: '/' }">
-                  <img src="@/assets/IMG_4168.jpg">
+        <template slot="brand">
+            <b-navbar-item tag="router-link" :to="'twitter.com/this.$route.params.id'">
+                  <img src='this.twitterphotoUrl'>
             </b-navbar-item>
-        </template> -->
+        </template>
         <template slot="start">
             <b-navbar-item href="#">
                 Home
@@ -121,7 +121,8 @@ export default {
       videoID: '',
       tweetID: '',
       soundID: '',
-      userid: firebase.auth().currentUser.uid
+      userid: firebase.auth().currentUser.uid,
+      twitterphotoUrl: firebase.auth().currentUser.photoURL
     }
   },
   components: {
