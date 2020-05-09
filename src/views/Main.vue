@@ -1,9 +1,7 @@
 <template>
   <div id="container">
     <header class="header">
-      <b-navbar class = "notification is-success">
-        <!-- <template slot="brand">
-        </template> -->
+      <b-navbar class = "notification is-primary">
         <template slot="start">
           <b-navbar-item href="`https://twitter.com/${this.$route.params.id}`">
               <img :src= this.twitterthumbnail class="thumbnail">
@@ -71,7 +69,7 @@
             <article class="tile is-child notification is-gainsboro">
               <p class="title">Instagram</p>
               <div class="instagram-content">
-                <instagram-embed :url="'https://www.instagram.com/p/B_w591uDjnD/?utm_source=ig_web_copy_link'" :max-width=500 :class-name="embed"></instagram-embed>
+                <instagram-embed :url="'https://www.instagram.com/p/B_xaj-WAXIg/?utm_source=ig_web_copy_link'" :max-width=500></instagram-embed>
               </div>
             </article>
           </div>

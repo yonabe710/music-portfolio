@@ -1,13 +1,12 @@
 <template>
   <div id="container">
     <header class="header">
-      <b-navbar class = "notification is-success">
-        <template slot="brand">
-            <b-navbar-item tag="router-link" :to="'twitter.com/this.$route.params.id'">
-                  <img src='this.twitterphotoUrl'>
-            </b-navbar-item>
-        </template>
+      <b-navbar class = "notification is-primary">
         <template slot="start">
+          <b-navbar-item href="`https://twitter.com/${this.$route.params.id}`">
+              <img :src= this.twitterphotoUrl class="thumbnail">
+              <h2 class="userid">{{this.twusername}}</h2>
+          </b-navbar-item>
             <b-navbar-item href="#">
                 Home
             </b-navbar-item>
@@ -122,6 +121,8 @@ export default {
       tweetID: '',
       soundID: '',
       userid: firebase.auth().currentUser.uid,
+      // twuserid: firebase.auth().currentUser.username,
+      twusername: firebase.auth().currentUser.displayName,
       twitterphotoUrl: firebase.auth().currentUser.photoURL
     }
   },
@@ -138,6 +139,7 @@ export default {
         // console.log('Document data:', doc.data().yturl)
         // console.log('Document data:', doc.data().twid)
         // console.log('Document data:', doc.data().scid)
+        // console.log(self.twitterphotoUrl)
         self.profile = doc.data().pfcontent
         self.videoID = doc.data().yturl
         self.tweetID = doc.data().twid
@@ -166,6 +168,10 @@ li {
 }
 a {
   color: #42b983;
+}
+
+.thumbnail{
+  padding-right: 5px;
 }
 
 .notification.is-success{

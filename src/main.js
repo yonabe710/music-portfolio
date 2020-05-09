@@ -2,6 +2,7 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
 import VueYouTubeEmbed from 'vue-youtube-embed'
+// import InstagramEmbed from 'vue-instagram-embed'
 import Buefy from 'buefy'
 import 'buefy/dist/buefy.css'
 import '@/assets/scss/style.scss'
@@ -19,6 +20,7 @@ library.add(fab)
 
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 /* Fontawesomeのインストールここまで */
+// Vue.component(InstagramEmbed)
 
 Vue.config.productionTip = false
 Vue.use(Buefy)
