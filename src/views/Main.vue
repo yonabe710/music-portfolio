@@ -1,39 +1,39 @@
 <template>
   <div id="container">
     <header class="header">
-      <b-navbar class = "notification is-primary">
+      <b-navbar class="notification is-primary">
         <template slot="start">
           <b-navbar-item href="`https://twitter.com/${this.$route.params.id}`">
-              <img :src= this.twitterthumbnail class="thumbnail">
-              <h2 class="userid">{{this.$route.params.id}}</h2>
+            <img :src="this.twitterthumbnail" class="thumbnail" />
+            <h2 class="userid">{{ this.$route.params.id }}</h2>
           </b-navbar-item>
           <b-navbar-item href="#">
-              Home
+            Home
           </b-navbar-item>
           <b-navbar-item href="#">
-              Documentation
+            Documentation
           </b-navbar-item>
           <b-navbar-dropdown label="Info">
-              <b-navbar-item href="#">
-                  About
-              </b-navbar-item>
-              <b-navbar-item href="#">
-                  Contact
-              </b-navbar-item>
+            <b-navbar-item href="#">
+              About
+            </b-navbar-item>
+            <b-navbar-item href="#">
+              Contact
+            </b-navbar-item>
           </b-navbar-dropdown>
         </template>
 
         <template slot="end">
-            <b-navbar-item tag="div">
-                <div class="buttons">
-                    <router-link to="/mypage" class="button is-primary">
-                      <strong>Mypage</strong>
-                    </router-link>
-                    <router-link to="/signin" class="button is-light">
-                      <strong>Sign in</strong>
-                    </router-link>
-                </div>
-            </b-navbar-item>
+          <b-navbar-item tag="div">
+            <div class="buttons">
+              <router-link to="/mypage" class="button is-primary">
+                <strong>Mypage</strong>
+              </router-link>
+              <router-link to="/signin" class="button is-light">
+                <strong>Sign in</strong>
+              </router-link>
+            </div>
+          </b-navbar-item>
         </template>
       </b-navbar>
     </header>
@@ -46,64 +46,129 @@
               Profile
             </h1>
             <h2 class="subtitle">
-              {{profile}}
+              {{ profile }}
             </h2>
             <ul class="follow">
-              <li><a href="https://twitter.com/k_onshitsu" class="flowbtn7 fl_tw7"><i><font-awesome-icon :icon = "['fab','twitter']"></font-awesome-icon></i></a></li>
-              <li><a href="https://www.youtube.com/channel/UCoOnBhAiccYdkJUbgwdorxg/" class="flowbtn7 fl_yu7"><i><font-awesome-icon :icon = "['fab','youtube']"></font-awesome-icon></i></a></li>
-              <li><a href="FacebookページのURL" class="flowbtn7 fl_fb7"><i><font-awesome-icon :icon = "['fab','facebook']"></font-awesome-icon></i></a></li>
+              <li>
+                <a href="https://twitter.com/k_onshitsu" class="flowbtn7 fl_tw7"
+                  ><i
+                    ><font-awesome-icon
+                      :icon="['fab', 'twitter']"
+                    ></font-awesome-icon></i
+                ></a>
+              </li>
+              <li>
+                <a
+                  href="https://www.youtube.com/channel/UCoOnBhAiccYdkJUbgwdorxg/"
+                  class="flowbtn7 fl_yu7"
+                  ><i
+                    ><font-awesome-icon
+                      :icon="['fab', 'youtube']"
+                    ></font-awesome-icon></i
+                ></a>
+              </li>
+              <li>
+                <a href="FacebookページのURL" class="flowbtn7 fl_fb7"
+                  ><i
+                    ><font-awesome-icon
+                      :icon="['fab', 'facebook']"
+                    ></font-awesome-icon></i
+                ></a>
+              </li>
             </ul>
           </div>
         </div>
       </section>
-        <div class="tile">
-          <div class="tile is-parent is-vertical is-8">
-            <article class="tile is-child notification is-gainsboro">
-              <p class="title">YouTube</p>
-              <!-- <div class="content"> -->
-                <div class="movie-wrap">
-                  <iframe width="854" height="480" :src="this.videoID" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                </div>
-              <!-- </div> -->
-            </article>
-            <article class="tile is-child notification is-gainsboro">
-              <p class="title">Instagram</p>
-              <div class="instagram-content">
-                <instagram-embed class="instagram-picture" :url="'https://www.instagram.com/p/B_xaj-WAXIg/?utm_source=ig_web_copy_link'" :max-width=1000></instagram-embed>
-              </div>
-            </article>
-          </div>
-          <div class="tile is-parent is-vertical is-4">
-            <article class="tile is-child notification is-gainsboro">
-              <p class="title">Twitter</p>
-              <div class="twitter-content" style="width:500px;">
-                <Tweet :id="tweetID" :key="tweetID"></Tweet>
-              </div>
-            </article>
-            <article class="tile is-child notification is-gainsboro">
-              <p class="title">Sound sample</p>
-              <!-- <div class="content"> -->
-                <div class="soundcloud">
-                <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" :src="`https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/${this.soundID}&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true`"></iframe>
-                <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/633309999&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
-                <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/568198284&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
-                <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/679809245&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
-                </div>
-              <!-- </div> -->
-            </article>
-          </div>
+      <div class="tile">
+        <div class="tile is-parent is-vertical is-8">
+          <article class="tile is-child notification is-gainsboro">
+            <p class="title">YouTube</p>
+            <!-- <div class="content"> -->
+            <div class="movie-wrap">
+              <iframe
+                width="854"
+                height="480"
+                :src="this.videoID"
+                frameborder="0"
+                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+              ></iframe>
+            </div>
+            <!-- </div> -->
+          </article>
+          <article class="tile is-child notification is-gainsboro">
+            <p class="title">Instagram</p>
+            <div class="instagram-content">
+              <instagram-embed
+                class="instagram-picture"
+                :url="
+                  'https://www.instagram.com/p/B_xaj-WAXIg/?utm_source=ig_web_copy_link'
+                "
+              ></instagram-embed>
+            </div>
+          </article>
         </div>
+        <div class="tile is-parent is-vertical is-4">
+          <article class="tile is-child notification is-gainsboro">
+            <p class="title">Twitter</p>
+            <div class="twitter-content" style="width:500px;">
+              <Tweet :id="tweetID" :key="tweetID"></Tweet>
+            </div>
+          </article>
+          <article class="tile is-child notification is-gainsboro">
+            <p class="title">Sound sample</p>
+            <!-- <div class="content"> -->
+            <div class="soundcloud">
+              <iframe
+                width="100%"
+                height="166"
+                scrolling="no"
+                frameborder="no"
+                allow="autoplay"
+                :src="
+                  `https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/${this.soundID}&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true`
+                "
+              ></iframe>
+              <iframe
+                width="100%"
+                height="166"
+                scrolling="no"
+                frameborder="no"
+                allow="autoplay"
+                src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/633309999&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"
+              ></iframe>
+              <iframe
+                width="100%"
+                height="166"
+                scrolling="no"
+                frameborder="no"
+                allow="autoplay"
+                src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/568198284&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"
+              ></iframe>
+              <iframe
+                width="100%"
+                height="166"
+                scrolling="no"
+                frameborder="no"
+                allow="autoplay"
+                src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/679809245&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"
+              ></iframe>
+            </div>
+            <!-- </div> -->
+          </article>
+        </div>
+      </div>
     </div>
 
     <footer class="footer">
       <div class="tile">
         <div class="tile is-parent is-vertical">
-            <article class="tile is-child notification is-light">
-              <p class="title">sairilab</p>
-              <div class="content">
-                <!-- Content -->
-              </div>
-            </article>
+          <article class="tile is-child notification is-light">
+            <p class="title">sairilab</p>
+            <div class="content">
+              <!-- Content -->
+            </div>
+          </article>
         </div>
       </div>
     </footer>
@@ -164,7 +229,8 @@ export default {
 </script>
 
 <style scoped>
-h1, h2 {
+h1,
+h2 {
   font-weight: normal;
 }
 ul {
@@ -176,99 +242,99 @@ li {
 }
 a {
   color: #42b983;
-  margin: 0px; 
+  margin: 0px;
   top: 0px;
 }
 
-.thumbnail{
+.thumbnail {
   padding-right: 5px;
 }
 
-.notification.is-success{
-  height: 50px
+.notification.is-success {
+  height: 50px;
 }
 
-#container{
+#container {
   background-color: #dcdcdc;
 }
 
-.hero-body{
-  height: 200px
+.hero-body {
+  height: 200px;
 }
 
-.footer{
+.footer {
   height: 100px;
   background-color: #dcdcdc;
 }
 
-.title{
+.title {
   text-decoration: underline;
 }
 
 /* -----------------------フォローボタンのstylesheet----------------------------- */
-.follow{
-  text-align : right;
+.follow {
+  text-align: right;
 }
 
 /* ボタン全体 */
-.flowbtn7{
-border-radius:50%;
-position:relative;
-display:inline-block;
-width:50px;
-height:50px;
-font-size:30px;
-color:#fff!important;
-text-decoration:none;
-transition:.5s;
+.flowbtn7 {
+  border-radius: 50%;
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  font-size: 30px;
+  color: #fff !important;
+  text-decoration: none;
+  transition: 0.5s;
 }
 /* アイコンをど真ん中に*/
-.flowbtn7 i{
-position:absolute;
-top:50%;
-left:50%;
--ms-transform:translate(-50%,-50%);
--webkit-transform:translate(-50%,-50%);
-transform:translate(-50%,-50%);
+.flowbtn7 i {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 }
 /* ulタグの内側余白を０にする */
-ul.snsbtniti{
-padding:0!important;
+ul.snsbtniti {
+  padding: 0 !important;
 }
 /* ボタン全体の位置 */
-.snsbtniti{
-display:flex;
-flex-flow:row wrap;
-justify-content:space-around;
+.snsbtniti {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
 }
 
 /* ボタン同士の余白 */
-.snsbtniti li{
-flex:0 0 33%;
-text-align:center !important;
+.snsbtniti li {
+  flex: 0 0 33%;
+  text-align: center !important;
 }
 
 /* ボタンにマウスを乗せた時 */
-.flowbtn7:hover{
--webkit-transform:translateY(-5px);
--ms-transform:translateY(-5px);
-transform:translateY(-5px);
+.flowbtn7:hover {
+  -webkit-transform: translateY(-5px);
+  -ms-transform: translateY(-5px);
+  transform: translateY(-5px);
 }
 
 /* Twitter */
-.fl_tw7{
-background:linear-gradient(135deg, #13f1fc 0%,#0470dc 100%);
+.fl_tw7 {
+  background: linear-gradient(135deg, #13f1fc 0%, #0470dc 100%);
 }
 
 /* Facebook */
-.fl_fb7{
-background: linear-gradient(135deg, #6699ff 0%,#3b5998 100%);
+.fl_fb7 {
+  background: linear-gradient(135deg, #6699ff 0%, #3b5998 100%);
 }
 
 /* YouTube */
-.fl_yu7{
-background:linear-gradient(135deg, #f5515f 0%,#c9293c 100%);
-font-size:26px;
+.fl_yu7 {
+  background: linear-gradient(135deg, #f5515f 0%, #c9293c 100%);
+  font-size: 26px;
 }
 /* -----------------------フォローボタンのstylesheet----------------------------- */
 .movie-wrap {
@@ -285,28 +351,25 @@ font-size:26px;
   height: 100%;
   border: solid 3px #000000;
 }
-.twitter-content{
-  background-color:#fff;
+.twitter-content {
+  background-color: #fff;
   margin: auto;
   border: solid 3px #000000;
 }
-.instagram-content{
-  /* height: 1000px;
-  /* margin: auto; */
+
+.instagram-content {
+  height: 100%;
   box-sizing: border-box;
 }
+
 .instagram-picture {
-  /* position: absolute;
-  top: 0;
-  left: 0px;
-  width: 100%; */
-  height: 1000px;
-  border: solid 3px #000000;
+  height: 100%;
 }
-.instagram-media{
-  height :1000px !important;
+
+.instagram-media {
+  height: 1000px !important;
 }
-.soundcloud{
+.soundcloud {
   margin-top: 50px;
   padding: 30px 10px;
   background-color: #fff;
@@ -316,5 +379,23 @@ font-size:26px;
 /* .tile.is-child{
   box-shadow: 5px 5px 5px 5px rgba(0,0,0,0.4);
 } */
+</style>
 
+<style scoped>
+.instagram-content {
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.instagram-picture {
+  height: 100%;
+}
+</style>
+
+<style>
+.instagram-picture > iframe {
+  height: 100%;
+  width: 100% !important;
+  max-width: initial !important;
+}
 </style>
