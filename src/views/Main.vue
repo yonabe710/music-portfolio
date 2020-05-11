@@ -69,7 +69,7 @@
             <article class="tile is-child notification is-gainsboro">
               <p class="title">Instagram</p>
               <div class="instagram-content">
-                <instagram-embed class="instagram-picture" :url="'https://www.instagram.com/p/B_xaj-WAXIg/?utm_source=ig_web_copy_link'" :max-width=1000></instagram-embed>
+                <instagram-embed class="instagram-picture" :url="'https://www.instagram.com/p/B_xaj-WAXIg/?utm_source=ig_web_copy_link'" :max-width=500></instagram-embed>
               </div>
             </article>
           </div>
@@ -290,31 +290,33 @@ font-size:26px;
   margin: auto;
   border: solid 3px #000000;
 }
+
 .instagram-content{
-  /* height: 1000px;
-  /* margin: auto; */
+  height: 1000px;
   box-sizing: border-box;
 }
+
 .instagram-picture {
-  /* position: absolute;
-  top: 0;
-  left: 0px;
-  width: 100%; */
-  height: 1000px;
+  height: 100%;
   border: solid 3px #000000;
 }
 .instagram-media{
   height :1000px !important;
 }
+
 .soundcloud{
   margin-top: 50px;
   padding: 30px 10px;
   background-color: #fff;
   border: solid 3px #000000;
 }
+</style>
 
-/* .tile.is-child{
-  box-shadow: 5px 5px 5px 5px rgba(0,0,0,0.4);
-} */
-
+<style>
+.instagram-picture > iframe {
+  height: 100%;
+  width: 100% !important;
+  /* max-width: initial !important; */
+  border: solid 3px #000000;
+}
 </style>

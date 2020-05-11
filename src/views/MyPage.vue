@@ -69,6 +69,9 @@
             </article>
             <article class="tile is-child notification is-gainsboro">
               <p class="title">Instagram</p>
+              <div class="instagram-content">
+                <instagram-embed class="instagram-picture" :url="'https://www.instagram.com/p/B_xaj-WAXIg/?utm_source=ig_web_copy_link'" :max-width=1000></instagram-embed>
+              </div>
             </article>
           </div>
           <div class="tile is-parent is-vertical is-4">
@@ -111,6 +114,7 @@
 import firebase from 'firebase/app'
 import 'firebase/auth'
 import {Tweet} from 'vue-tweet-embed'
+import InstagramEmbed from 'vue-instagram-embed'
 
 export default {
   name: 'MyPage',
@@ -127,7 +131,8 @@ export default {
     }
   },
   components: {
-    Tweet: Tweet
+    Tweet: Tweet,
+    InstagramEmbed
   },
   created () {
     let self = this
@@ -277,6 +282,9 @@ font-size:26px;
 }
 .twitter-content{
   border: solid 3px #000000;
+}
+.instagram-media{
+  height :1000px !important;
 }
 .soundcloud{
   margin-top: 50px;
