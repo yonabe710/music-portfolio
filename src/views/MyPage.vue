@@ -70,7 +70,7 @@
             <article class="tile is-child notification is-gainsboro">
               <p class="title">Instagram</p>
               <div class="instagram-content">
-                <instagram-embed class="instagram-picture" :url="'https://www.instagram.com/p/B_xaj-WAXIg/?utm_source=ig_web_copy_link'" :max-width=1000></instagram-embed>
+                <instagram-embed class="instagram-picture" :url="'https://www.instagram.com/p/CAA2opFgUFp/?utm_source=ig_web_copy_link'" :max-width=500></instagram-embed>
               </div>
             </article>
           </div>
@@ -122,6 +122,7 @@ export default {
     return {
       profile: '',
       videoID: '',
+      instaID: '',
       tweetID: '',
       soundID: '',
       userid: firebase.auth().currentUser.uid,
@@ -147,6 +148,7 @@ export default {
         // console.log(self.twitterphotoUrl)
         self.profile = doc.data().pfcontent
         self.videoID = doc.data().yturl
+        self.instaID = doc.data().igurl
         self.tweetID = doc.data().twid
         self.soundID = doc.data().scid
       } else {
@@ -283,6 +285,15 @@ font-size:26px;
 .twitter-content{
   border: solid 3px #000000;
 }
+.instagram-content{
+  height: 1000px;
+  box-sizing: border-box;
+}
+
+.instagram-picture {
+  height: 100%;
+  border: solid 3px #000000;
+}
 .instagram-media{
   height :1000px !important;
 }
@@ -297,4 +308,13 @@ font-size:26px;
   box-shadow: 5px 5px 5px 5px rgba(0,0,0,0.4);
 } */
 
+</style>
+
+<style>
+.instagram-picture > iframe {
+  height: 100%;
+  width: 100% !important;
+  /* max-width: initial !important; */
+  border: solid 3px #000000;
+}
 </style>

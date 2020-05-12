@@ -72,6 +72,12 @@
           </article>
           <article class="tile is-child notification is-gainsboro">
             <p class="title">Instagram</p>
+            <div class="instagram-content">
+              <instagram-embed class="instagram-picture" :url="instaID" :max-width=500></instagram-embed>
+            </div>
+            <textarea v-model = "igurl"></textarea>
+            <button type=“submit” @click="getInstaID">change</button>
+            <button type=“submit” @click="sendInstaID">save</button>
           </article>
         </div>
 
@@ -132,6 +138,8 @@ export default {
       profile: '',
       yturl: 'YouTubeのURL',
       videoID: '',
+      igurl: '',
+      instaID: '',
       twurl: 'Tweetのリンクです',
       tweetID: '1096038493417959424',
       scurl: 'Soundcloudのリンク',
@@ -150,11 +158,13 @@ export default {
       if (doc.exists) {
         console.log('Document data:', doc.data().pfcontent)
         console.log('Document data:', doc.data().yturl)
+        console.log('Document data:', doc.data().igurl)
         console.log('Document data:', doc.data().twid)
         console.log('Document data:', doc.data().scid)
         console.log('Document data:', doc.data().twuserid)
         self.profile = doc.data().pfcontent
         self.videoID = doc.data().yturl
+        self.instaID = doc.data().igurl
         self.tweetID = doc.data().twid
         self.soundID = doc.data().scid
       } else {
@@ -187,6 +197,20 @@ export default {
     sendVideoID () {
       this.db.collection('uid').doc(this.userid).set({
         yturl: `${this.videoID}`
+      },{merge: true})
+        .then(function () {
+          console.log('Document successfully written!')
+        })
+        .catch(function (error) {
+          console.error('Error writing document: ', error)
+        })
+    },
+    getInstaID () {
+      this.instaID = this.igurl
+    },
+    sendInstaID () {
+      this.db.collection('uid').doc(this.userid).set({
+        igurl: `${this.instaID}`
       },{merge: true})
         .then(function () {
           console.log('Document successfully written!')
@@ -373,6 +397,18 @@ font-size:26px;
 .twitter-content{
   border: solid 3px #000000;
 }
+.instagram-content{
+  height: 1000px;
+  box-sizing: border-box;
+}
+
+.instagram-picture {
+  height: 100%;
+  border: solid 3px #000000;
+}
+.instagram-media{
+  height :1000px !important;
+}
 .soundcloud{
   margin-top: 50px;
   padding: 30px 10px;
@@ -415,5 +451,14 @@ font-size:26px;
 .complete button:active{
   border-bottom: solid 2px #fd9535;
   box-shadow: 0 0 2px rgba(0, 0, 0, 0.30);
+}
+</style>
+
+<style>
+.instagram-picture > iframe {
+  height: 100%;
+  width: 100% !important;
+  /* max-width: initial !important; */
+  border: solid 3px #000000;
 }
 </style>

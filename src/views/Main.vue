@@ -69,7 +69,7 @@
             <article class="tile is-child notification is-gainsboro">
               <p class="title">Instagram</p>
               <div class="instagram-content">
-                <instagram-embed class="instagram-picture" :url="'https://www.instagram.com/p/B_xaj-WAXIg/?utm_source=ig_web_copy_link'" :max-width=500></instagram-embed>
+                <instagram-embed class="instagram-picture" :url="instaID" :max-width=500></instagram-embed>
               </div>
             </article>
           </div>
@@ -122,6 +122,7 @@ export default {
     return {
       profile: '',
       videoID: '',
+      instaID: '',
       tweetID: '',
       soundID: '',
       twitterthumbnail: '',
@@ -142,12 +143,14 @@ export default {
         if (doc.exists) {
           console.log('Document data:', doc.data().pfcontent)
           console.log('Document data:', doc.data().yturl)
+          console.log('Document data:', doc.data().igurl)
           console.log('Document data:', doc.data().twid)
           console.log('Document data:', doc.data().scid)
           console.log('Document data:', doc.data().twphotourl)
           console.log(self.$route.params.id)
           self.profile = doc.data().pfcontent
           self.videoID = doc.data().yturl
+          self.instaID = doc.data().igurl
           self.tweetID = doc.data().twid
           self.soundID = doc.data().scid
           self.twitterthumbnail = doc.data().twphotourl
