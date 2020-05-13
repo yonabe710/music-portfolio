@@ -71,7 +71,9 @@
               <p class="title">Instagram</p>
               <p>{{this.instaID}}</p>
               <div class="instagram-content">
-                <instagram-embed class="instagram-picture"
+                <instagram-embed 
+                  class="instagram-picture"
+                  v-if="instaID"
                   :url="instaID"
                   :max-width=500
                 />
