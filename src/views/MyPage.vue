@@ -69,8 +69,12 @@
             </article>
             <article class="tile is-child notification is-gainsboro">
               <p class="title">Instagram</p>
+              <p>{{this.instaID}}</p>
               <div class="instagram-content">
-                <instagram-embed class="instagram-picture" :url="'https://www.instagram.com/p/CAA2opFgUFp/?utm_source=ig_web_copy_link'" :max-width=500></instagram-embed>
+                <instagram-embed class="instagram-picture"
+                  :url="instaID"
+                  :max-width=500
+                />
               </div>
             </article>
           </div>
@@ -141,11 +145,12 @@ export default {
     var docRef = db.collection('uid').doc(this.userid)
     docRef.get().then(function (doc) {
       if (doc.exists) {
-        // console.log('Document data:', doc.data().pfcontent)
-        // console.log('Document data:', doc.data().yturl)
-        // console.log('Document data:', doc.data().twid)
-        // console.log('Document data:', doc.data().scid)
-        // console.log(self.twitterphotoUrl)
+        console.log('Document data:', doc.data().pfcontent)
+        console.log('Document data:', doc.data().yturl)
+        console.log('Document data:', doc.data().igurl)
+        console.log('Document data:', doc.data().twid)
+        console.log('Document data:', doc.data().scid)
+        console.log(self.twitterphotoUrl)
         self.profile = doc.data().pfcontent
         self.videoID = doc.data().yturl
         self.instaID = doc.data().igurl

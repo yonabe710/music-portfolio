@@ -130,6 +130,7 @@
 import firebase from 'firebase/app'
 import 'firebase/auth'
 import {Tweet} from 'vue-tweet-embed'
+import InstagramEmbed from 'vue-instagram-embed'
 /* eslint-disable no-new */
 export default {
   name: 'Editor',
@@ -167,6 +168,7 @@ export default {
         self.instaID = doc.data().igurl
         self.tweetID = doc.data().twid
         self.soundID = doc.data().scid
+        console.log(self.instaID)
       } else {
       // doc.data() will be undefined in this case
         console.log('No such document!')
@@ -176,7 +178,8 @@ export default {
     })
   },
   components: {
-    Tweet: Tweet
+    Tweet: Tweet,
+    InstagramEmbed
   },
   methods: {
     sendProfile () {

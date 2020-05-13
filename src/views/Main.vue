@@ -69,7 +69,7 @@
             <article class="tile is-child notification is-gainsboro">
               <p class="title">Instagram</p>
               <div class="instagram-content">
-                <instagram-embed class="instagram-picture" :url="instaID" :max-width=500></instagram-embed>
+                <instagram-embed class="instagram-picture" :url="`${instaID}`" :max-width=500></instagram-embed>
               </div>
             </article>
           </div>
