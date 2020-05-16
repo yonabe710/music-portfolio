@@ -4,7 +4,7 @@
       <b-navbar class = "notification is-primary">
         <template slot="start">
           <b-navbar-item :href="`https://twitter.com/${this.$route.params.id}`">
-              <img class="thumbnail" :src= this.twthumbnail>
+              <img class="thumbnail" :src= this.twphotourl>
               <h2 class="userid">@{{this.$route.params.id}}</h2>
           </b-navbar-item>
           <b-navbar-item href="#">
@@ -131,7 +131,8 @@ export default {
       instaID: '',
       tweetID: '',
       soundID: '',
-      twthumbnail: '',
+      twusername: '',
+      twphotourl: '',
       slash: '/',
     }
   },
@@ -153,13 +154,14 @@ export default {
           console.log('Document data:', doc.data().twid)
           console.log('Document data:', doc.data().scid)
           console.log('Document data:', doc.data().twphotourl)
+          console.log('Document data:', doc.data().twusername)
           console.log(self.$route.params.id)
           self.profile = doc.data().pfcontent
           self.videoID = doc.data().yturl
           self.instaID = doc.data().igurl
           self.tweetID = doc.data().twid
           self.soundID = doc.data().scid
-          self.twthumbnail = doc.data().twphotourl
+          self.twphotourl = doc.data().twphotourl
         } else {
           // doc.data() will be undefined in this case
           console.log('No such document!')

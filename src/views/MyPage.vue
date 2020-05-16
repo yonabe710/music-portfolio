@@ -152,7 +152,7 @@ export default {
         console.log('Document data:', doc.data().igurl)
         console.log('Document data:', doc.data().twid)
         console.log('Document data:', doc.data().scid)
-        console.log(self.twitterphotoUrl)
+        console.log(self.twphotoUrl)
         self.profile = doc.data().pfcontent
         self.videoID = doc.data().yturl
         self.instaID = doc.data().igurl
