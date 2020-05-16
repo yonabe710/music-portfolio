@@ -72,8 +72,14 @@
           </article>
           <article class="tile is-child notification is-gainsboro">
             <p class="title">Instagram</p>
+            <p>{{this.instaID}}</p>
             <div class="instagram-content">
-              <instagram-embed class="instagram-picture" :url="instaID" :max-width=500></instagram-embed>
+              <instagram-embed 
+                class="instagram-picture"
+                :url="this.instaID"
+                :key="instaID"
+                :max-width=500
+              />
             </div>
             <textarea v-model = "igurl"></textarea>
             <button type=“submit” @click="getInstaID">change</button>

@@ -68,9 +68,14 @@
             </article>
             <article class="tile is-child notification is-gainsboro">
               <p class="title">Instagram</p>
+              <!-- <p>{{this.instaID}}</p> -->
               <div class="instagram-content">
-                <instagram-embed class="instagram-picture" :url="`${instaID}`" :max-width=500></instagram-embed>
-              </div>
+                <instagram-embed 
+                  class="instagram-picture"
+                  v-if="instaID"
+                  :url="instaID"
+                  :max-width=500
+                />
             </article>
           </div>
           <div class="tile is-parent is-vertical is-4">

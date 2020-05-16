@@ -69,7 +69,7 @@
             </article>
             <article class="tile is-child notification is-gainsboro">
               <p class="title">Instagram</p>
-              <p>{{this.instaID}}</p>
+              <!-- <p>{{this.instaID}}</p> -->
               <div class="instagram-content">
                 <instagram-embed 
                   class="instagram-picture"
