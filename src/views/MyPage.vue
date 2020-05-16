@@ -4,23 +4,23 @@
       <b-navbar class = "notification is-primary">
         <template slot="start">
           <b-navbar-item href="https://twitter.com/">
-              <img :src= this.twphotoUrl class="thumbnail">
+              <img class="thumbnail" :src= this.twphotoUrl>
               <h2 class="userid">{{this.twusername}}</h2>
           </b-navbar-item>
-            <b-navbar-item href="#">
-                Home
-            </b-navbar-item>
-            <b-navbar-item href="#">
-                Documentation
-            </b-navbar-item>
-            <b-navbar-dropdown label="Info">
-                <b-navbar-item href="#">
-                    About
-                </b-navbar-item>
-                <b-navbar-item href="#">
-                    Contact
-                </b-navbar-item>
-            </b-navbar-dropdown>
+          <b-navbar-item href="#">
+              Home
+          </b-navbar-item>
+          <b-navbar-item href="#">
+              Documentation
+          </b-navbar-item>
+          <b-navbar-dropdown label="Info">
+              <b-navbar-item href="#">
+                  About
+              </b-navbar-item>
+              <b-navbar-item href="#">
+                  Contact
+              </b-navbar-item>
+          </b-navbar-dropdown>
         </template>
 
         <template slot="end">
