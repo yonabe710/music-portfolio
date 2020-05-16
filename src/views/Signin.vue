@@ -28,6 +28,7 @@ export default {
         signInSuccessWithAuthResult: function (authResult, redirectUrl) {
           const twuserid = authResult.additionalUserInfo.username
           const twphotourl = firebase.auth().currentUser.photoURL
+          const twusername = firebase.auth().currentUser.displayName
           const userid = firebase.auth().currentUser.uid
           // User successfully signed in.
           // Return type determines whether we continue the redirect automatically
@@ -36,11 +37,13 @@ export default {
           var db = firebase.firestore()
           db.collection('uid').doc(userid).set({
             twuserid: `${twuserid}`,
-            twphotourl: `${twphotourl}`
+            twphotourl: `${twphotourl}`,
+            twusername: `${twusername}`
           },{merge: true})
             .then(function () {
-              console.log(twuserid)
-              console.log(twphotourl)
+              // console.log(twuserid)
+              // console.log(twphotourl)
+              // console.log(twphotourl)
             })
             .catch(function (error) {
               console.error('Error writing document: ', error)

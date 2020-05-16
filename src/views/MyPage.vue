@@ -3,8 +3,8 @@
     <header class="header">
       <b-navbar class = "notification is-primary">
         <template slot="start">
-          <b-navbar-item href="`https://twitter.com/${this.$route.params.id}`">
-              <img :src= this.twitterphotoUrl class="thumbnail">
+          <b-navbar-item href="https://twitter.com/">
+              <img :src= this.twphotoUrl class="thumbnail">
               <h2 class="userid">{{this.twusername}}</h2>
           </b-navbar-item>
             <b-navbar-item href="#">
@@ -134,7 +134,7 @@ export default {
       userid: firebase.auth().currentUser.uid,
       // twuserid: firebase.auth().currentUser.username,
       twusername: firebase.auth().currentUser.displayName,
-      twitterphotoUrl: firebase.auth().currentUser.photoURL
+      twphotoUrl: firebase.auth().currentUser.photoURL
     }
   },
   components: {

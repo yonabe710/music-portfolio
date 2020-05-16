@@ -3,9 +3,9 @@
     <header class="header">
       <b-navbar class = "notification is-primary">
         <template slot="start">
-          <b-navbar-item href="`https://twitter.com/${this.$route.params.id}`">
-              <img :src= this.twitterthumbnail class="thumbnail">
-              <h2 class="userid">{{this.$route.params.id}}</h2>
+          <b-navbar-item :href="`https://twitter.com/${this.$route.params.id}`">
+              <img class="thumbnail" :src= this.twthumbnail>
+              <h2 class="userid">@{{this.$route.params.id}}</h2>
           </b-navbar-item>
           <b-navbar-item href="#">
               Home
@@ -72,10 +72,11 @@
               <div class="instagram-content">
                 <instagram-embed 
                   class="instagram-picture"
-                  v-if="instaID"
+                  :key="instaID"
                   :url="instaID"
                   :max-width=500
                 />
+              </div>
             </article>
           </div>
           <div class="tile is-parent is-vertical is-4">
@@ -130,7 +131,7 @@ export default {
       instaID: '',
       tweetID: '',
       soundID: '',
-      twitterthumbnail: '',
+      twthumbnail: '',
       slash: '/',
     }
   },
@@ -158,7 +159,7 @@ export default {
           self.instaID = doc.data().igurl
           self.tweetID = doc.data().twid
           self.soundID = doc.data().scid
-          self.twitterthumbnail = doc.data().twphotourl
+          self.twthumbnail = doc.data().twphotourl
         } else {
           // doc.data() will be undefined in this case
           console.log('No such document!')
