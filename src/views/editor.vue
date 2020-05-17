@@ -1,27 +1,26 @@
 <template>
   <div id="container">
     <header class="header">
-      <b-navbar class = "notification is-success">
-        <!-- <template slot="brand">
-            <b-navbar-item tag="router-link" :to="{ path: '/' }">
-                  <img src="@/assets/IMG_4168.jpg">
-            </b-navbar-item>
-        </template> -->
+      <b-navbar class = "notification is-primary">
         <template slot="start">
-            <b-navbar-item href="#">
-                Home
-            </b-navbar-item>
-            <b-navbar-item href="#">
-                Documentation
-            </b-navbar-item>
-            <b-navbar-dropdown label="Info">
-                <b-navbar-item href="#">
-                    About
-                </b-navbar-item>
-                <b-navbar-item href="#">
-                    Contact
-                </b-navbar-item>
-            </b-navbar-dropdown>
+          <b-navbar-item href="https://twitter.com/">
+            <img class="thumbnail" :src= this.twphotoUrl>
+            <h2 class="userid">{{this.twusername}}</h2>
+          </b-navbar-item>
+          <b-navbar-item href="#">
+              Home
+          </b-navbar-item>
+          <b-navbar-item href="#">
+              Documentation
+          </b-navbar-item>
+          <b-navbar-dropdown label="Info">
+              <b-navbar-item href="#">
+                  About
+              </b-navbar-item>
+              <b-navbar-item href="#">
+                  Contact
+              </b-navbar-item>
+          </b-navbar-dropdown>
         </template>
 
         <template slot="end">
@@ -152,6 +151,8 @@ export default {
       scurl: 'Soundcloudのリンク',
       soundID: '666328004',
       userid: firebase.auth().currentUser.uid,
+      twusername: firebase.auth().currentUser.displayName,
+      twphotoUrl: firebase.auth().currentUser.photoURL,
       db: firebase.firestore(),
       slash: '/',
       and: '&'
