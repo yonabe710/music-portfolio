@@ -2,15 +2,9 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import MyPage from '@/views/MyPage'
 import Main from '@/views/Main'
-import Signup from '@/views/Signup'
 import Signin from '@/views/Signin'
-import pfEditor from '@/views/pfEditor'
-import ytEditor from '@/views/ytEditor'
-import twEditor from '@/views/twEditor'
-import scEditor from '@/views/scEditor'
 import editor from '@/views/editor'
-import firebase from 'firebase/app'
-import 'firebase/auth'
+import firebase from '@/plugins/firebase'
 
 
 Vue.use(VueRouter)
@@ -26,38 +20,9 @@ const router = new VueRouter({
       meta: { requiresAuth: true }
     },
     {
-      path: '/signup',
-      name: 'Signup',
-      component: Signup
-    },
-    {
       path: '/signin',
       name: 'Signin',
       component: Signin
-    },
-    {
-      path: '/pfeditor',
-      name: 'PfEditor',
-      component: pfEditor,
-      meta: { requiresAuth: true }
-    },
-    {
-      path: '/yteditor',
-      name: 'YtEditor',
-      component: ytEditor,
-      meta: { requiresAuth: true }
-    },
-    {
-      path: '/tweditor',
-      name: 'TwEditor',
-      component: twEditor,
-      meta: { requiresAuth: true }
-    },
-    {
-      path: '/sceditor',
-      name: 'ScEditor',
-      component: scEditor,
-      meta: { requiresAuth: true }
     },
     {
       path: '/editor',

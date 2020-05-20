@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import firebase from 'firebase'
+import firebase from '@/plugins/firebase'
 import * as firebaseui from 'firebaseui'
 import 'firebaseui/dist/firebaseui.css'
 

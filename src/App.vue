@@ -1,8 +1,14 @@
 <template>
   <div id="app">
+    <Header></Header>
+    <Body></Body>
     <router-view/>
   </div>
 </template>
+
+<script src='main.js' />
+
+
 
 <style lang="scss">
 #app {
