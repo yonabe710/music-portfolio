@@ -29,9 +29,12 @@
                     <router-link to="/mypage" class="button is-primary">
                       <strong>Mypage</strong>
                     </router-link>
-                    <router-link to="/signin" class="button is-light">
+                    <router-link to="/signin" class="button is-light" v-if="!authenticatedUser">
                       <strong>Sign in</strong>
                     </router-link>
+                    <button type="button" class="button is-light" @click="signOut" v-if="authenticatedUser">
+                      <strong>Sign out</strong>
+                    </button>
                 </div>
             </b-navbar-item>
         </template>
@@ -132,6 +135,7 @@ export default {
       tweetID: '',
       soundID: '',
       twitterthumbnail: '',
+      authenticatedUser: '',
       slash: '/',
     }
   },
@@ -139,7 +143,23 @@ export default {
     Tweet: Tweet,
     InstagramEmbed
   },
-  created () {
+  methods: {
+    signOut () {
+      firebase.auth().signOut().then(()=>{
+        this.$router.push('/signin')
+      })
+    }
+  },
+  mounted () {
+    firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        console.log('login')
+        this.authenticatedUser = true
+      } else {
+        console.log('logout')
+        this.authenticatedUser = false
+      }
+    })    
     let self = this
     const db = firebase.firestore()
     const collectionRef = db.collection('uid')
