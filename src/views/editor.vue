@@ -30,9 +30,12 @@
                     <router-link to="/mypage" class="button is-primary">
                       <strong>Mypage</strong>
                     </router-link>
-                    <router-link to="/signin" class="button is-light">
+                    <!-- <router-link to="/signin" class="button is-light">
                       <strong>Sign in</strong>
-                    </router-link>
+                    </router-link> -->
+                    <button type="button" class="button is-light" @click="signOut">
+                      <strong>Sign out</strong>
+                    </button>
                 </div>
             </b-navbar-item>
         </template>
@@ -188,6 +191,11 @@ export default {
     InstagramEmbed
   },
   methods: {
+    signOut () {
+      firebase.auth().signOut().then(()=>{
+        this.$router.push('/signin')
+      })
+    },
     sendProfile () {
       this.db.collection('uid').doc(this.userid).set({
         pfcontent: `${this.profile}`,

@@ -29,9 +29,12 @@
                     <router-link to="/editor" class="button is-primary">
                       <strong>Edit</strong>
                     </router-link>
-                    <router-link to="/signin" class="button is-light">
+                    <!-- <router-link to="/signin" class="button is-light">
                       <strong>Sign in</strong>
-                    </router-link>
+                    </router-link> -->
+                    <button type="button" class="button is-light" @click="signOut">
+                      <strong>Sign out</strong>
+                    </button>
                 </div>
             </b-navbar-item>
         </template>
@@ -135,6 +138,13 @@ export default {
       // twuserid: firebase.auth().currentUser.username,
       twusername: firebase.auth().currentUser.displayName,
       twitterphotoUrl: firebase.auth().currentUser.photoURL
+    }
+  },
+  methods: {
+    signOut () {
+      firebase.auth().signOut().then(()=>{
+        this.$router.push('/signin')
+      })
     }
   },
   components: {
