@@ -177,7 +177,6 @@ export default {
         self.instaID = doc.data().igurl
         self.tweetID = doc.data().twid
         self.soundID = doc.data().scid
-        console.log(self.instaID)
       } else {
       // doc.data() will be undefined in this case
         console.log('No such document!')
@@ -200,27 +199,26 @@ export default {
       this.db.collection('uid').doc(this.userid).set({
         pfcontent: `${this.profile}`,
       },{merge: true})
-        .then(function () {
-          console.log('Document successfully written!')
-        })
-        .catch(function (error) {
-          console.error('Error writing document: ', error)
-        })
+        // .then(function () {
+        //   console.log('Document successfully written!')
+        // })
+        // .catch(function (error) {
+        //   console.error('Error writing document: ', error)
+        // })
     },
     getVideoID () {
-      // console.log(this.$youtube.getIdFromURL(this.yturl))
       this.videoID = `https://youtube.com/embed/${this.$youtube.getIdFromURL(this.yturl)}`
     },
     sendVideoID () {
       this.db.collection('uid').doc(this.userid).set({
         yturl: `${this.videoID}`
       },{merge: true})
-        .then(function () {
-          console.log('Document successfully written!')
-        })
-        .catch(function (error) {
-          console.error('Error writing document: ', error)
-        })
+        // .then(function () {
+        //   console.log('Document successfully written!')
+        // })
+        // .catch(function (error) {
+        //   console.error('Error writing document: ', error)
+        // })
     },
     getInstaID () {
       this.instaID = this.igurl
@@ -229,12 +227,12 @@ export default {
       this.db.collection('uid').doc(this.userid).set({
         igurl: `${this.instaID}`
       },{merge: true})
-        .then(function () {
-          console.log('Document successfully written!')
-        })
-        .catch(function (error) {
-          console.error('Error writing document: ', error)
-        })
+        // .then(function () {
+        //   console.log('Document successfully written!')
+        // })
+        // .catch(function (error) {
+        //   console.error('Error writing document: ', error)
+        // })
     },
     getTweetID () {
       var stringer = new URL(this.twurl)
@@ -249,12 +247,12 @@ export default {
       this.db.collection('uid').doc(this.userid).set({
         twid: `${this.tweetID}`
       },{merge: true})
-        .then(function () {
-          console.log('Document successfully written!')
-        })
-        .catch(function (error) {
-          console.error('Error writing document: ', error)
-        })
+        // .then(function () {
+        //   console.log('Document successfully written!')
+        // })
+        // .catch(function (error) {
+        //   console.error('Error writing document: ', error)
+        // })
     },
     getSoundID () {
       var stringer = new URL(this.scurl)
@@ -269,12 +267,12 @@ export default {
       this.db.collection('uid').doc(this.userid).set({
         scid: `${this.soundID}`
       },{merge: true})
-        .then(function () {
-          console.log('Document successfully written!')
-        })
-        .catch(function (error) {
-          console.error('Error writing document: ', error)
-        })
+        // .then(function () {
+        //   console.log('Document successfully written!')
+        // })
+        // .catch(function (error) {
+        //   console.error('Error writing document: ', error)
+        // })
     },
     sendAll () {
       this.db.collection('uid').doc(this.userid).set({
@@ -283,12 +281,12 @@ export default {
         twid: `${this.tweetID}`,
         scid: `${this.soundID}`
         },{merge: true})
-        .then(function () {
-          console.log('Document successfully written!')
-        })
-        .catch(function (error) {
-          console.error('Error writing document: ', error)
-        })
+        // .then(function () {
+        //   console.log('Document successfully written!')
+        // })
+        // .catch(function (error) {
+        //   console.error('Error writing document: ', error)
+        // })
     }
   }
 }
