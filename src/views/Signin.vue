@@ -1,10 +1,6 @@
 <template>
   <div class="signin">
     <h2>Sign in</h2>
-    <p>
-      You don't have an account?
-      <router-link to="/signup">create account now!!</router-link>
-    </p>
     <div id="firebaseui-auth-container"></div>
     <div id="loader">Loading...</div>
   </div>
