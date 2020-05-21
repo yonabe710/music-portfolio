@@ -76,6 +76,7 @@
                   :url="instaID"
                   :max-width=500
                 />
+              </div>
             </article>
           </div>
           <div class="tile is-parent is-vertical is-4">
