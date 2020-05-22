@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import Vuelidate from 'vuelidate'
 import MyPage from '@/views/MyPage'
 import Main from '@/views/Main'
 import Signin from '@/views/Signin'
@@ -9,6 +10,8 @@ import 'firebase/auth'
 
 
 Vue.use(VueRouter)
+Vue.use(Vuelidate)
+
 
 const router = new VueRouter({
   mode: 'history',
