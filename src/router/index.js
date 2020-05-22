@@ -3,7 +3,7 @@ import VueRouter from 'vue-router'
 import MyPage from '@/views/MyPage'
 import Main from '@/views/Main'
 import Signin from '@/views/Signin'
-import editor from '@/views/editor'
+import Editor from '@/views/Editor'
 import firebase from 'firebase/app'
 import 'firebase/auth'
 
@@ -28,7 +28,7 @@ const router = new VueRouter({
     {
       path: '/editor',
       name:'Editor',
-      component: editor,
+      component: Editor,
       meta: { requiresAuth: true }
     },
     // {
