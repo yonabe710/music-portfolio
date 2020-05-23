@@ -30,9 +30,6 @@
                     <router-link to="/mypage" class="button is-primary">
                       <strong>Mypage</strong>
                     </router-link>
-                    <!-- <router-link to="/signin" class="button is-light">
-                      <strong>Sign in</strong>
-                    </router-link> -->
                     <button type="button" class="button is-light" @click="signOut">
                       <strong>Sign out</strong>
                     </button>
@@ -69,7 +66,8 @@
             <div class = "movie-wrap">
               <iframe id = "player"  width="854" height="400" :src="this.videoID" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
-            <textarea v-model = "yturl"></textarea>
+            <textarea v-model = "yturl" @input="$v.yturl.$touch()"></textarea>
+            <span class="texterror" v-if="!$v.yturl.url">URLでお願い！</span>
             <button type=“submit” @click="getVideoID">change</button>
             <button type=“submit” @click="sendVideoID">save</button>
           </article>
@@ -140,6 +138,7 @@ import firebase from 'firebase/app'
 import 'firebase/auth'
 import {Tweet} from 'vue-tweet-embed'
 import InstagramEmbed from 'vue-instagram-embed'
+import url from 'vuelidate/lib/validators/url'
 /* eslint-disable no-new */
 export default {
   name: 'Editor',
@@ -160,6 +159,12 @@ export default {
       and: '&'
     }
   },
+  validations:{
+    yturl: {url},
+    igurl: {url},
+    twurl: {url},
+    scurl: {url},
+  },
   created () {
     let self = this
     var db = firebase.firestore()
@@ -177,7 +182,6 @@ export default {
         self.instaID = doc.data().igurl
         self.tweetID = doc.data().twid
         self.soundID = doc.data().scid
-        console.log(self.instaID)
       } else {
       // doc.data() will be undefined in this case
         console.log('No such document!')
@@ -200,27 +204,27 @@ export default {
       this.db.collection('uid').doc(this.userid).set({
         pfcontent: `${this.profile}`,
       },{merge: true})
-        .then(function () {
-          console.log('Document successfully written!')
-        })
-        .catch(function (error) {
-          console.error('Error writing document: ', error)
-        })
+        // .then(function () {
+        //   console.log('Document successfully written!')
+        // })
+        // .catch(function (error) {
+        //   console.error('Error writing document: ', error)
+        // })
     },
     getVideoID () {
-      // console.log(this.$youtube.getIdFromURL(this.yturl))
       this.videoID = `https://youtube.com/embed/${this.$youtube.getIdFromURL(this.yturl)}`
+      // validations = {yturl: {url}}
     },
     sendVideoID () {
       this.db.collection('uid').doc(this.userid).set({
         yturl: `${this.videoID}`
       },{merge: true})
-        .then(function () {
-          console.log('Document successfully written!')
-        })
-        .catch(function (error) {
-          console.error('Error writing document: ', error)
-        })
+        // .then(function () {
+        //   console.log('Document successfully written!')
+        // })
+        // .catch(function (error) {
+        //   console.error('Error writing document: ', error)
+        // })
     },
     getInstaID () {
       this.instaID = this.igurl
@@ -229,12 +233,12 @@ export default {
       this.db.collection('uid').doc(this.userid).set({
         igurl: `${this.instaID}`
       },{merge: true})
-        .then(function () {
-          console.log('Document successfully written!')
-        })
-        .catch(function (error) {
-          console.error('Error writing document: ', error)
-        })
+        // .then(function () {
+        //   console.log('Document successfully written!')
+        // })
+        // .catch(function (error) {
+        //   console.error('Error writing document: ', error)
+        // })
     },
     getTweetID () {
       var stringer = new URL(this.twurl)
@@ -249,12 +253,12 @@ export default {
       this.db.collection('uid').doc(this.userid).set({
         twid: `${this.tweetID}`
       },{merge: true})
-        .then(function () {
-          console.log('Document successfully written!')
-        })
-        .catch(function (error) {
-          console.error('Error writing document: ', error)
-        })
+        // .then(function () {
+        //   console.log('Document successfully written!')
+        // })
+        // .catch(function (error) {
+        //   console.error('Error writing document: ', error)
+        // })
     },
     getSoundID () {
       var stringer = new URL(this.scurl)
@@ -269,12 +273,12 @@ export default {
       this.db.collection('uid').doc(this.userid).set({
         scid: `${this.soundID}`
       },{merge: true})
-        .then(function () {
-          console.log('Document successfully written!')
-        })
-        .catch(function (error) {
-          console.error('Error writing document: ', error)
-        })
+        // .then(function () {
+        //   console.log('Document successfully written!')
+        // })
+        // .catch(function (error) {
+        //   console.error('Error writing document: ', error)
+        // })
     },
     sendAll () {
       this.db.collection('uid').doc(this.userid).set({
@@ -283,12 +287,12 @@ export default {
         twid: `${this.tweetID}`,
         scid: `${this.soundID}`
         },{merge: true})
-        .then(function () {
-          console.log('Document successfully written!')
-        })
-        .catch(function (error) {
-          console.error('Error writing document: ', error)
-        })
+        // .then(function () {
+        //   console.log('Document successfully written!')
+        // })
+        // .catch(function (error) {
+        //   console.error('Error writing document: ', error)
+        // })
     }
   }
 }
@@ -328,6 +332,11 @@ a {
 .twitter-content{
   background-color:#fff;
   margin: auto;
+}
+
+.texterror{
+  font-size:30px;
+  color:red;
 }
 
 /* -----------------------フォローボタンのstylesheet----------------------------- */

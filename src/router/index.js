@@ -1,14 +1,17 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import Vuelidate from 'vuelidate'
 import MyPage from '@/views/MyPage'
 import Main from '@/views/Main'
 import Signin from '@/views/Signin'
-import editor from '@/views/editor'
+import Editor from '@/views/Editor'
 import firebase from 'firebase/app'
 import 'firebase/auth'
 
 
 Vue.use(VueRouter)
+Vue.use(Vuelidate)
+
 
 const router = new VueRouter({
   mode: 'history',
@@ -28,7 +31,7 @@ const router = new VueRouter({
     {
       path: '/editor',
       name:'Editor',
-      component: editor,
+      component: Editor,
       meta: { requiresAuth: true }
     },
     // {
