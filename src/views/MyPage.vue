@@ -198,7 +198,7 @@ a {
   padding-right: 5px;
 }
 
-.notification.is-success{
+.header{
   height: 50px
 }
 
