@@ -66,10 +66,16 @@
             <div class = "movie-wrap">
               <iframe id = "player"  width="854" height="400" :src="this.videoID" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
-            <textarea v-model = "yturl" @input="$v.yturl.$touch()"></textarea>
-            <span class="texterror" v-if="!$v.yturl.url">URLでお願い！</span>
-            <button type=“submit” @click="getVideoID">change</button>
-            <button type=“submit” @click="sendVideoID">save</button>
+            <form @submit.prevent="submitForm">
+              <div>
+                <textarea v-model = "yturl"></textarea>
+              </div>
+              <div v-if="$v.yturl.$error">
+                <span class="texterror" v-if="!$v.yturl.url">URLでお願い！</span>
+              </div>
+               <button type=“submit” @click="getVideoID">change</button>
+               <button type=“submit” @click="sendVideoID">save</button>
+             </form>
           </article>
           <article class="tile is-child notification is-gainsboro">
             <p class="title">Instagram</p>
@@ -195,6 +201,15 @@ export default {
     InstagramEmbed
   },
   methods: {
+    submitForm(){
+        this.$v.$touch()
+        if(this.$v.$invalid){
+            console.log('バリデーションエラー')
+        }else{
+            // データ登録の処理をここに記述
+            console.log('submit')
+        }
+    },
     signOut () {
       firebase.auth().signOut().then(()=>{
         this.$router.push('/signin')
