@@ -66,7 +66,8 @@
             <div class = "movie-wrap">
               <iframe id = "player"  width="854" height="400" :src="this.videoID" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
-            <textarea v-model = "yturl"></textarea>
+            <textarea v-model = "yturl" @input="$v.yturl.$touch()"></textarea>
+            <span class="texterror" v-if="!$v.yturl.url">URLでお願い！</span>
             <button type=“submit” @click="getVideoID">change</button>
             <button type=“submit” @click="sendVideoID">save</button>
           </article>
@@ -212,6 +213,7 @@ export default {
     },
     getVideoID () {
       this.videoID = `https://youtube.com/embed/${this.$youtube.getIdFromURL(this.yturl)}`
+      // validations = {yturl: {url}}
     },
     sendVideoID () {
       this.db.collection('uid').doc(this.userid).set({
@@ -330,6 +332,11 @@ a {
 .twitter-content{
   background-color:#fff;
   margin: auto;
+}
+
+.texterror{
+  font-size:30px;
+  color:red;
 }
 
 /* -----------------------フォローボタンのstylesheet----------------------------- */
