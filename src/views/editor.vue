@@ -71,7 +71,7 @@
                 <textarea v-model = "yturl"></textarea>
               </div>
               <div v-if="$v.yturl.$error">
-                <span class="texterror" v-if="!$v.yturl.url">URLでお願い！</span>
+                <span class="texterror" v-if="!$v.yturl.url">YouTubeのURLでお願い！</span>
               </div>
                <button type=“submit” @click="getVideoID">change</button>
                <button type=“submit” @click="sendVideoID">save</button>
@@ -88,9 +88,14 @@
                 :max-width=500
               />
             </div>
-            <textarea v-model = "igurl"></textarea>
-            <button type=“submit” @click="getInstaID">change</button>
-            <button type=“submit” @click="sendInstaID">save</button>
+            <form @submit.prevent="submitForm">
+              <textarea v-model = "igurl"></textarea>
+              <div v-if="$v.igurl.$error">
+                <span class="texterror" v-if="!$v.igurl.url">InstagramのURLでお願い！</span>
+              </div>
+              <button type=“submit” @click="getInstaID">change</button>
+              <button type=“submit” @click="sendInstaID">save</button>
+            </form>
           </article>
         </div>
 
@@ -99,9 +104,14 @@
             <p class="title">Twitter</p>
             <div class="content" style="width:832px;" :options="{ cards: 'hidden' }">
               <Tweet :id="tweetID" :key="tweetID"></Tweet>
-            <textarea v-model = "twurl"></textarea>
-            <button type=“submit” @click="getTweetID">change</button>
-            <button type=“submit” @click="sendTweetID">save</button>
+            <form @submit.prevent="submitForm">
+              <textarea v-model = "twurl"></textarea>
+              <div v-if="$v.twurl.$error">
+                <span class="texterror" v-if="!$v.twurl.url">TwitterのURLでお願い！</span>
+              </div>
+              <button type=“submit” @click="getTweetID">change</button>
+              <button type=“submit” @click="sendTweetID">save</button>
+            </form>
             </div>
           </article>
           <article class="tile is-child notification is-gainsboro">
