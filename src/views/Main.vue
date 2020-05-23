@@ -1,7 +1,7 @@
 <template>
   <div id="container">
     <header class="header">
-      <b-navbar class = "notification is-primary">
+      <b-navbar class = "notification is-primary" fixed-top>
         <template slot="start">
           <b-navbar-item href="`https://twitter.com/${this.$route.params.id}`">
               <img :src= this.twitterthumbnail class="thumbnail">
