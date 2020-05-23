@@ -1,7 +1,7 @@
 <template>
   <div id="container">
     <header class="header">
-      <b-navbar class = "notification is-success">
+      <b-navbar class = "notification is-success" fixed-top>
         <!-- <template slot="brand">
             <b-navbar-item tag="router-link" :to="{ path: '/' }">
                   <img src="@/assets/IMG_4168.jpg">
@@ -48,7 +48,7 @@
             </h1>
             <h2 class="subtitle">
               {{profile}}
-              <textarea v-model = "profile"></textarea>
+              <textarea v-model = "profile" cols="50" rows="5"></textarea>
               <button type=“submit” @click="sendProfile" >save</button>
             </h2>
             <ul class="follow">
@@ -68,15 +68,16 @@
             </div>
             <form @submit.prevent="submitForm">
               <div>
-                <textarea v-model = "yturl"></textarea>
+                <textarea v-model = "yturl" cols="50" rows="5"></textarea>
               </div>
-              <div v-if="$v.yturl.$error">
+              <div>
                 <span class="texterror" v-if="!$v.yturl.url">YouTubeのURLでお願い！</span>
               </div>
                <button type=“submit” @click="getVideoID">change</button>
                <button type=“submit” @click="sendVideoID">save</button>
              </form>
           </article>
+
           <article class="tile is-child notification is-gainsboro">
             <p class="title">Instagram</p>
             <p>{{this.instaID}}</p>
@@ -89,7 +90,7 @@
               />
             </div>
             <form @submit.prevent="submitForm">
-              <textarea v-model = "igurl"></textarea>
+              <textarea v-model = "igurl" cols="50" rows="5"></textarea>
               <div v-if="$v.igurl.$error">
                 <span class="texterror" v-if="!$v.igurl.url">InstagramのURLでお願い！</span>
               </div>
@@ -105,7 +106,7 @@
             <div class="content" style="width:832px;" :options="{ cards: 'hidden' }">
               <Tweet :id="tweetID" :key="tweetID"></Tweet>
             <form @submit.prevent="submitForm">
-              <textarea v-model = "twurl"></textarea>
+              <textarea v-model = "twurl" cols="50" rows="5"></textarea>
               <div v-if="$v.twurl.$error">
                 <span class="texterror" v-if="!$v.twurl.url">TwitterのURLでお願い！</span>
               </div>
@@ -114,6 +115,7 @@
             </form>
             </div>
           </article>
+          
           <article class="tile is-child notification is-gainsboro">
             <p class="title">Sound sample</p>
             <div class="soundcloud">
@@ -213,7 +215,7 @@ export default {
   methods: {
     submitForm(){
         this.$v.$touch()
-        if(this.$v.$invalid){
+        if(!this.$v.url){
             console.log('バリデーションエラー')
         }else{
             // データ登録の処理をここに記述
@@ -337,9 +339,8 @@ li {
 a {
   color: #42b983;
 }
-
 .notification.is-success{
-  height: 50px
+  height: 50px;
 }
 
 #container{
