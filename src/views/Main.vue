@@ -1,11 +1,11 @@
 <template>
   <div id="container">
     <header class="header">
-      <b-navbar class = "notification is-primary">
+      <b-navbar class = "notification is-primary" fixed-top>
         <template slot="start">
           <b-navbar-item :href="`https://twitter.com/${this.$route.params.id}`">
-              <img class="thumbnail" :src= this.twphotourl>
-              <h2 class="username">{{this.twusername}}</h2>
+            <img class="thumbnail" :src= this.twphotourl>
+            <h2 class="username">{{this.twusername}}</h2>
           </b-navbar-item>
           <b-navbar-item href="#">
               Home
@@ -136,6 +136,7 @@ export default {
       soundID: '',
       twusername: '',
       twphotourl: '',
+      authenticatedUser: '',
       slash: '/',
     }
   },
@@ -181,7 +182,7 @@ export default {
           self.tweetID = doc.data().twid
           self.soundID = doc.data().scid
           self.twusername = doc.data().twusername
-          self.twphotourl = doc.data().twphotour
+          self.twphotourl = doc.data().twphotourl
         } else {
           // doc.data() will be undefined in this case
           console.log('No such document!')

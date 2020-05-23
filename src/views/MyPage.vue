@@ -1,10 +1,10 @@
 <template>
   <div id="container">
     <header class="header">
-      <b-navbar class = "notification is-primary">
+      <b-navbar class = "notification is-primary" fixed-top>
         <template slot="start">
           <b-navbar-item href="https://twitter.com/">
-              <img class="thumbnail" :src= this.twphotoUrl>
+              <img class="thumbnail" :src= this.twphotourl>
               <h2 class="userid">{{this.twusername}}</h2>
           </b-navbar-item>
           <b-navbar-item href="#">
@@ -137,7 +137,7 @@ export default {
       userid: firebase.auth().currentUser.uid,
       // twuserid: firebase.auth().currentUser.username,
       twusername: firebase.auth().currentUser.displayName,
-      twphotoUrl: firebase.auth().currentUser.photoURL
+      twphotourl: firebase.auth().currentUser.photoURL
     }
   },
   methods: {
@@ -198,7 +198,7 @@ a {
   padding-right: 5px;
 }
 
-.notification.is-success{
+.header{
   height: 50px
 }
 

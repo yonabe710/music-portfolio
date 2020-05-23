@@ -1,27 +1,26 @@
 <template>
   <div id="container">
     <header class="header">
-      <b-navbar class = "notification is-success">
-        <!-- <template slot="brand">
-            <b-navbar-item tag="router-link" :to="{ path: '/' }">
-                  <img src="@/assets/IMG_4168.jpg">
-            </b-navbar-item>
-        </template> -->
+      <b-navbar class = "notification is-primary" fixed-top>
         <template slot="start">
-            <b-navbar-item href="#">
-                Home
-            </b-navbar-item>
-            <b-navbar-item href="#">
-                Documentation
-            </b-navbar-item>
-            <b-navbar-dropdown label="Info">
-                <b-navbar-item href="#">
-                    About
-                </b-navbar-item>
-                <b-navbar-item href="#">
-                    Contact
-                </b-navbar-item>
-            </b-navbar-dropdown>
+          <b-navbar-item href="https://twitter.com/">
+            <img class="thumbnail" :src= this.twphotourl>
+            <h2 class="userid">{{this.twusername}}</h2>
+          </b-navbar-item>
+          <b-navbar-item href="#">
+              Home
+          </b-navbar-item>
+          <b-navbar-item href="#">
+              Documentation
+          </b-navbar-item>
+          <b-navbar-dropdown label="Info">
+              <b-navbar-item href="#">
+                  About
+              </b-navbar-item>
+              <b-navbar-item href="#">
+                  Contact
+              </b-navbar-item>
+          </b-navbar-dropdown>
         </template>
 
         <template slot="end">
@@ -48,9 +47,9 @@
             </h1>
             <h2 class="subtitle">
               {{profile}}
-              <textarea v-model = "profile"></textarea>
-              <button type=“submit” @click="sendProfile" >save</button>
             </h2>
+            <textarea v-model = "profile" cols="50" rows="5"></textarea>
+            <button type=“submit” @click="sendProfile" >save</button>
             <ul class="follow">
               <li><a href="https://twitter.com/k_onshitsu" class="flowbtn7 fl_tw7"><i><font-awesome-icon :icon = "['fab','twitter']"></font-awesome-icon></i></a></li>
               <li><a href="https://www.youtube.com/channel/UCoOnBhAiccYdkJUbgwdorxg/" class="flowbtn7 fl_yu7"><i><font-awesome-icon :icon = "['fab','youtube']"></font-awesome-icon></i></a></li>
@@ -66,11 +65,18 @@
             <div class = "movie-wrap">
               <iframe id = "player"  width="854" height="400" :src="this.videoID" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
-            <textarea v-model = "yturl" @input="$v.yturl.$touch()"></textarea>
-            <span class="texterror" v-if="!$v.yturl.url">URLでお願い！</span>
-            <button type=“submit” @click="getVideoID">change</button>
-            <button type=“submit” @click="sendVideoID">save</button>
+            <form @submit.prevent="submitForm">
+              <div>
+                <textarea v-model = "yturl" cols="50" rows="5" placeholder="YouTubeのURL"></textarea>
+              </div>
+              <div>
+                <span class="texterror" v-if="!$v.yturl.url">YouTubeのURLでお願い！</span>
+              </div>
+               <button type=“submit” @click="getVideoID">change</button>
+               <button type=“submit” @click="sendVideoID">save</button>
+             </form>
           </article>
+
           <article class="tile is-child notification is-gainsboro">
             <p class="title">Instagram</p>
             <p>{{this.instaID}}</p>
@@ -82,9 +88,14 @@
                 :max-width=500
               />
             </div>
-            <textarea v-model = "igurl"></textarea>
-            <button type=“submit” @click="getInstaID">change</button>
-            <button type=“submit” @click="sendInstaID">save</button>
+            <form @submit.prevent="submitForm">
+              <textarea v-model = "igurl" cols="50" rows="5" placeholder="Instagramのリンク"></textarea>
+              <div v-if="$v.igurl.$error">
+                <span class="texterror" v-if="!$v.igurl.url">InstagramのURLでお願い！</span>
+              </div>
+              <button type=“submit” @click="getInstaID">change</button>
+              <button type=“submit” @click="sendInstaID">save</button>
+            </form>
           </article>
         </div>
 
@@ -93,11 +104,17 @@
             <p class="title">Twitter</p>
             <div class="content" style="width:832px;" :options="{ cards: 'hidden' }">
               <Tweet :id="tweetID" :key="tweetID"></Tweet>
-            <textarea v-model = "twurl"></textarea>
-            <button type=“submit” @click="getTweetID">change</button>
-            <button type=“submit” @click="sendTweetID">save</button>
+            <form @submit.prevent="submitForm">
+              <textarea v-model = "twurl" cols="50" rows="5" placeholder="Tweetのリンク"></textarea>
+              <div v-if="$v.twurl.$error">
+                <span class="texterror" v-if="!$v.twurl.url">TwitterのURLでお願い！</span>
+              </div>
+              <button type=“submit” @click="getTweetID">change</button>
+              <button type=“submit” @click="sendTweetID">save</button>
+            </form>
             </div>
           </article>
+          
           <article class="tile is-child notification is-gainsboro">
             <p class="title">Sound sample</p>
             <div class="soundcloud">
@@ -145,15 +162,17 @@ export default {
   data: function () {
     return {
       profile: '',
-      yturl: 'YouTubeのURL',
+      yturl: '',
       videoID: '',
       igurl: '',
       instaID: '',
-      twurl: 'Tweetのリンクです',
-      tweetID: '1096038493417959424',
-      scurl: 'Soundcloudのリンク',
-      soundID: '666328004',
+      twurl: '',
+      tweetID: '',
+      scurl: '',
+      soundID: '',
       userid: firebase.auth().currentUser.uid,
+      twusername: firebase.auth().currentUser.displayName,
+      twphotourl: firebase.auth().currentUser.photoURL,
       db: firebase.firestore(),
       slash: '/',
       and: '&'
@@ -195,6 +214,15 @@ export default {
     InstagramEmbed
   },
   methods: {
+    submitForm(){
+        this.$v.$touch()
+        if(!this.$v.url){
+            console.log('バリデーションエラー')
+        }else{
+            // データ登録の処理をここに記述
+            console.log('submit')
+        }
+    },
     signOut () {
       firebase.auth().signOut().then(()=>{
         this.$router.push('/signin')
@@ -312,9 +340,8 @@ li {
 a {
   color: #42b983;
 }
-
 .notification.is-success{
-  height: 50px
+  height: 50px;
 }
 
 #container{
