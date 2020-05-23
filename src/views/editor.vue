@@ -1,27 +1,26 @@
 <template>
   <div id="container">
     <header class="header">
-      <b-navbar class = "notification is-success" fixed-top>
-        <!-- <template slot="brand">
-            <b-navbar-item tag="router-link" :to="{ path: '/' }">
-                  <img src="@/assets/IMG_4168.jpg">
-            </b-navbar-item>
-        </template> -->
+      <b-navbar class = "notification is-primary" fixed-top>
         <template slot="start">
-            <b-navbar-item href="#">
-                Home
-            </b-navbar-item>
-            <b-navbar-item href="#">
-                Documentation
-            </b-navbar-item>
-            <b-navbar-dropdown label="Info">
-                <b-navbar-item href="#">
-                    About
-                </b-navbar-item>
-                <b-navbar-item href="#">
-                    Contact
-                </b-navbar-item>
-            </b-navbar-dropdown>
+          <b-navbar-item href="https://twitter.com/">
+            <img class="thumbnail" :src= this.twphotourl>
+            <h2 class="userid">{{this.twusername}}</h2>
+          </b-navbar-item>
+          <b-navbar-item href="#">
+              Home
+          </b-navbar-item>
+          <b-navbar-item href="#">
+              Documentation
+          </b-navbar-item>
+          <b-navbar-dropdown label="Info">
+              <b-navbar-item href="#">
+                  About
+              </b-navbar-item>
+              <b-navbar-item href="#">
+                  Contact
+              </b-navbar-item>
+          </b-navbar-dropdown>
         </template>
 
         <template slot="end">
@@ -48,9 +47,9 @@
             </h1>
             <h2 class="subtitle">
               {{profile}}
-              <textarea v-model = "profile" cols="50" rows="5"></textarea>
-              <button type=“submit” @click="sendProfile" >save</button>
             </h2>
+            <textarea v-model = "profile" cols="50" rows="5"></textarea>
+            <button type=“submit” @click="sendProfile" >save</button>
             <ul class="follow">
               <li><a href="https://twitter.com/k_onshitsu" class="flowbtn7 fl_tw7"><i><font-awesome-icon :icon = "['fab','twitter']"></font-awesome-icon></i></a></li>
               <li><a href="https://www.youtube.com/channel/UCoOnBhAiccYdkJUbgwdorxg/" class="flowbtn7 fl_yu7"><i><font-awesome-icon :icon = "['fab','youtube']"></font-awesome-icon></i></a></li>
@@ -172,6 +171,8 @@ export default {
       scurl: '',
       soundID: '',
       userid: firebase.auth().currentUser.uid,
+      twusername: firebase.auth().currentUser.displayName,
+      twphotourl: firebase.auth().currentUser.photoURL,
       db: firebase.firestore(),
       slash: '/',
       and: '&'
