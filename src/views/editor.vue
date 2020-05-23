@@ -30,9 +30,6 @@
                     <router-link to="/mypage" class="button is-primary">
                       <strong>Mypage</strong>
                     </router-link>
-                    <!-- <router-link to="/signin" class="button is-light">
-                      <strong>Sign in</strong>
-                    </router-link> -->
                     <button type="button" class="button is-light" @click="signOut">
                       <strong>Sign out</strong>
                     </button>
@@ -140,6 +137,7 @@ import firebase from 'firebase/app'
 import 'firebase/auth'
 import {Tweet} from 'vue-tweet-embed'
 import InstagramEmbed from 'vue-instagram-embed'
+import url from 'vuelidate/lib/validators/url'
 /* eslint-disable no-new */
 export default {
   name: 'Editor',
@@ -159,6 +157,12 @@ export default {
       slash: '/',
       and: '&'
     }
+  },
+  validations:{
+    yturl: {url},
+    igurl: {url},
+    twurl: {url},
+    scurl: {url},
   },
   created () {
     let self = this
