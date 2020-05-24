@@ -67,7 +67,7 @@
             </div>
             <form @submit.prevent="submitForm">
               <div>
-                <textarea v-model = "yturl" cols="50" rows="5" placeholder="YouTubeのURL"></textarea>
+                <textarea v-model = "yturl" cols="50" rows="5" placeholder="YouTubeのURLをコピーして貼付け"></textarea>
               </div>
               <div>
                 <span class="texterror" v-if="!$v.yturl.url">YouTubeのURLでお願い！</span>
@@ -89,7 +89,7 @@
               />
             </div>
             <form @submit.prevent="submitForm">
-              <textarea v-model = "igurl" cols="50" rows="5" placeholder="Instagramのリンク"></textarea>
+              <textarea v-model = "igurl" cols="50" rows="5" placeholder="Instagramのリンクをコピーして貼付け"></textarea>
               <div v-if="$v.igurl.$error">
                 <span class="texterror" v-if="!$v.igurl.url">InstagramのURLでお願い！</span>
               </div>
@@ -105,7 +105,7 @@
             <div class="content" style="width:832px;" :options="{ cards: 'hidden' }">
               <Tweet :id="tweetID" :key="tweetID"></Tweet>
             <form @submit.prevent="submitForm">
-              <textarea v-model = "twurl" cols="50" rows="5" placeholder="Tweetのリンク"></textarea>
+              <textarea v-model = "twurl" cols="50" rows="5" placeholder="Tweetのリンクをコピーして貼付け"></textarea>
               <div v-if="$v.twurl.$error">
                 <span class="texterror" v-if="!$v.twurl.url">TwitterのURLでお願い！</span>
               </div>
