@@ -340,7 +340,7 @@ li {
 a {
   color: #42b983;
 }
-.notification.is-success{
+.header{
   height: 50px;
 }
 
