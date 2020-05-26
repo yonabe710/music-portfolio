@@ -4,7 +4,7 @@ import Vuelidate from 'vuelidate'
 import MyPage from '@/views/MyPage'
 import Main from '@/views/Main'
 import Signin from '@/views/Signin'
-import Editor from '@/views/Editor'
+import Editor from '@/views/editor'
 import firebase from 'firebase/app'
 import 'firebase/auth'
 
