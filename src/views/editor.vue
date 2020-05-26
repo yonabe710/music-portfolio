@@ -63,18 +63,18 @@
           <article class="tile is-child notification is-gainsboro">
             <p class="title">YouTube</p>
             <div class = "movie-wrap">
-              <iframe id = "player"  width="854" height="400" :src="this.videoID" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              <iframe width="854" height="400" :src="this.videoID" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
             <form @submit.prevent="submitForm">
               <div>
-                <textarea v-model = "yturl" cols="50" rows="5" placeholder="YouTubeのURLをコピーして貼付け"></textarea>
+                <textarea v-model = "yturl" @input="$v.yturl.$reset()" @blur="$v.yturl.$touch()" placeholder="YouTubeのURLをコピーして貼付け" cols="50" rows="5"></textarea>
               </div>
-              <div>
-                <span class="texterror" v-if="!$v.yturl.url">YouTubeのURLでお願い！</span>
+              <div v-if="$v.yturl.$error">
+                <span class="texterror">YouTubeのURLでお願い！</span>
               </div>
-               <button type=“submit” @click="getVideoID">change</button>
-               <button type=“submit” @click="sendVideoID">save</button>
-             </form>
+                <button type=“submit” @click="getVideoID">change</button>
+                <button type=“submit” @click="sendVideoID">save</button>
+            </form>
           </article>
 
           <article class="tile is-child notification is-gainsboro">
@@ -88,14 +88,14 @@
                 :max-width=500
               />
             </div>
-            <form @submit.prevent="submitForm">
-              <textarea v-model = "igurl" cols="50" rows="5" placeholder="Instagramのリンクをコピーして貼付け"></textarea>
-              <div v-if="$v.igurl.$error">
-                <span class="texterror" v-if="!$v.igurl.url">InstagramのURLでお願い！</span>
-              </div>
+            <!-- <form @submit.prevent="submitForm"> -->
+              <textarea v-model = "igurl" v-if="instaID" cols="50" rows="5" placeholder="Instagramのリンクをコピーして貼付け"></textarea>
+              <!-- <div v-if="$v.igurl.$error"> -->
+                <!-- <span class="texterror" v-if="!$v.igurl.url">InstagramのURLでお願い！</span> -->
+              <!-- </div> -->
               <button type=“submit” @click="getInstaID">change</button>
               <button type=“submit” @click="sendInstaID">save</button>
-            </form>
+            <!-- </form> -->
           </article>
         </div>
 
@@ -103,15 +103,15 @@
           <article class="tile is-child notification is-gainsboro">
             <p class="title">Twitter</p>
             <div class="content" style="width:832px;" :options="{ cards: 'hidden' }">
-              <Tweet :id="tweetID" :key="tweetID"></Tweet>
-            <form @submit.prevent="submitForm">
+              <Tweet :id="tweetID" :key="tweetID" v-if="tweetID"></Tweet>
+            <!-- <form @submit.prevent="submitForm"> -->
               <textarea v-model = "twurl" cols="50" rows="5" placeholder="Tweetのリンクをコピーして貼付け"></textarea>
-              <div v-if="$v.twurl.$error">
-                <span class="texterror" v-if="!$v.twurl.url">TwitterのURLでお願い！</span>
-              </div>
+              <!-- <div v-if="$v.twurl.$error"> -->
+                <!-- <span class="texterror" v-if="!$v.twurl.url">TwitterのURLでお願い！</span> -->
+              <!-- </div> -->
               <button type=“submit” @click="getTweetID">change</button>
               <button type=“submit” @click="sendTweetID">save</button>
-            </form>
+            <!-- </form> -->
             </div>
           </article>
           
@@ -215,13 +215,13 @@ export default {
   },
   methods: {
     submitForm(){
-        this.$v.$touch()
-        if(!this.$v.url){
-            console.log('バリデーションエラー')
-        }else{
-            // データ登録の処理をここに記述
-            console.log('submit')
-        }
+      this.$v.$touch()
+      if(this.$v.$invalid){
+        console.log('バリデーションエラー')
+      }else{
+        // データ登録の処理をここに記述
+        console.log('submit')
+      }
     },
     signOut () {
       firebase.auth().signOut().then(()=>{
