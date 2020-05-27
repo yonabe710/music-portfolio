@@ -88,14 +88,16 @@
                 :max-width=500
               />
             </div>
-            <!-- <form @submit.prevent="submitForm"> -->
-              <textarea v-model = "igurl" v-if="instaID" cols="50" rows="5" placeholder="Instagramのリンクをコピーして貼付け"></textarea>
-              <!-- <div v-if="$v.igurl.$error"> -->
-                <!-- <span class="texterror" v-if="!$v.igurl.url">InstagramのURLでお願い！</span> -->
-              <!-- </div> -->
+            <form @submit.prevent="submitForm">
+              <div>
+                <textarea v-model = "igurl" @input="$v.igurl.$reset()" @blur="$v.igurl.$touch()" cols="50" rows="5" placeholder="Instagramのリンクをコピーして貼付け"></textarea>
+              </div>
+              <div v-if="$v.igurl.$error">
+                <span class="texterror">InstagramのURLでお願い！</span>
+              </div>
               <button type=“submit” @click="getInstaID">change</button>
               <button type=“submit” @click="sendInstaID">save</button>
-            <!-- </form> -->
+            </form>
           </article>
         </div>
 
@@ -104,14 +106,16 @@
             <p class="title">Twitter</p>
             <div class="content" style="width:832px;" :options="{ cards: 'hidden' }">
               <Tweet :id="tweetID" :key="tweetID" v-if="tweetID"></Tweet>
-            <!-- <form @submit.prevent="submitForm"> -->
-              <textarea v-model = "twurl" cols="50" rows="5" placeholder="Tweetのリンクをコピーして貼付け"></textarea>
-              <!-- <div v-if="$v.twurl.$error"> -->
-                <!-- <span class="texterror" v-if="!$v.twurl.url">TwitterのURLでお願い！</span> -->
-              <!-- </div> -->
+            <form @submit.prevent="submitForm">
+              <div>
+                <textarea v-model = "twurl" @input="$v.twurl.$reset()" @blur="$v.twurl.$touch()" cols="50" rows="5" placeholder="Tweetのリンクをコピーして貼付け"></textarea>
+              </div>
+              <div v-if="$v.twurl.$error">
+                <span class="texterror">TwitterのURLでお願い！</span>
+              </div>
               <button type=“submit” @click="getTweetID">change</button>
               <button type=“submit” @click="sendTweetID">save</button>
-            <!-- </form> -->
+            </form>
             </div>
           </article>
           
