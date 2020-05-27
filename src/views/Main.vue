@@ -7,7 +7,7 @@
             <img class="thumbnail" :src= this.twphotourl>
             <h2 class="username">{{this.twusername}}</h2>
           </b-navbar-item>
-          <b-navbar-item href="#">
+          <!-- <b-navbar-item href="#">
               Home
           </b-navbar-item>
           <b-navbar-item href="#">
@@ -20,7 +20,7 @@
               <b-navbar-item href="#">
                   Contact
               </b-navbar-item>
-          </b-navbar-dropdown>
+          </b-navbar-dropdown> -->
         </template>
 
         <template slot="end">
@@ -51,11 +51,11 @@
             <h2 class="subtitle">
               {{profile}}
             </h2>
-            <ul class="follow">
+            <!-- <ul class="follow">
               <li><a href="https://twitter.com/k_onshitsu" class="flowbtn7 fl_tw7"><i><font-awesome-icon :icon = "['fab','twitter']"></font-awesome-icon></i></a></li>
               <li><a href="https://www.youtube.com/channel/UCoOnBhAiccYdkJUbgwdorxg/" class="flowbtn7 fl_yu7"><i><font-awesome-icon :icon = "['fab','youtube']"></font-awesome-icon></i></a></li>
               <li><a href="FacebookページのURL" class="flowbtn7 fl_fb7"><i><font-awesome-icon :icon = "['fab','facebook']"></font-awesome-icon></i></a></li>
-            </ul>
+            </ul> -->
           </div>
         </div>
       </section>
