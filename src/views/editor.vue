@@ -313,20 +313,20 @@ export default {
     //     //   console.error('Error writing document: ', error)
     //     // })
     // },
-    sendAll () {
-      this.db.collection('uid').doc(this.userid).set({
-        pfcontent: `${this.profile}`,
-        yturl: `https://youtube.com/embed/${this.videoID}`,
-        twid: `${this.tweetID}`,
-        scid: `${this.soundID}`
-        },{merge: true})
-        // .then(function () {
-        //   console.log('Document successfully written!')
-        // })
-        // .catch(function (error) {
-        //   console.error('Error writing document: ', error)
-        // })
-    }
+    // sendAll () {
+    //   this.db.collection('uid').doc(this.userid).set({
+    //     pfcontent: `${this.profile}`,
+    //     yturl: `https://youtube.com/embed/${this.videoID}`,
+    //     twid: `${this.tweetID}`,
+    //     scid: `${this.soundID}`
+    //     },{merge: true})
+    //     // .then(function () {
+    //     //   console.log('Document successfully written!')
+    //     // })
+    //     // .catch(function (error) {
+    //     //   console.error('Error writing document: ', error)
+    //     // })
+    // }
   }
 }
 </script>
