@@ -135,7 +135,7 @@
         </div>
       </div>
       <div class="end-button">
-        <router-link to="/mypage"><button type=“submit” class="all-save" @click="sendAll" >all save</button></router-link>
+        <!-- <router-link to="/mypage"><button type=“submit” class="all-save" @click="sendAll" >all save</button></router-link> -->
         <router-link to="/mypage"><button type=“button” class="complete">complete!</button></router-link>
       </div>
     </div>
