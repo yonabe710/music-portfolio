@@ -120,7 +120,7 @@
             </div>
           </article>
           
-          <article class="tile is-child notification is-gainsboro">
+          <!-- <article class="tile is-child notification is-gainsboro">
             <p class="title">Sound sample</p>
             <div class="soundcloud">
               <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" :src="`https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/${this.soundID}&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true`"></iframe>
@@ -131,7 +131,7 @@
               <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/568198284&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
               <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/679809245&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
             </div>
-          </article>
+          </article> -->
         </div>
       </div>
       <div class="end-button">
@@ -173,8 +173,8 @@ export default {
       instaID: '',
       twurl: '',
       tweetID: '',
-      scurl: '',
-      soundID: '',
+      // scurl: '',
+      // soundID: '',
       userid: firebase.auth().currentUser.uid,
       twusername: firebase.auth().currentUser.displayName,
       twphotourl: firebase.auth().currentUser.photoURL,
@@ -199,13 +199,13 @@ export default {
         console.log('Document data:', doc.data().yturl)
         console.log('Document data:', doc.data().igurl)
         console.log('Document data:', doc.data().twid)
-        console.log('Document data:', doc.data().scid)
+        // console.log('Document data:', doc.data().scid)
         console.log('Document data:', doc.data().twuserid)
         self.profile = doc.data().pfcontent
         self.videoID = doc.data().yturl
         self.instaID = doc.data().igurl
         self.tweetID = doc.data().twid
-        self.soundID = doc.data().scid
+        // self.soundID = doc.data().scid
       } else {
       // doc.data() will be undefined in this case
         console.log('No such document!')
@@ -293,25 +293,25 @@ export default {
         //   console.error('Error writing document: ', error)
         // })
     },
-    getSoundID () {
-      var stringer = new URL(this.scurl)
-    //   console.log('#1', this)
-    //   console.log('#2', stringer)
-    //   console.log('#3', stringer.searchParams.get('url'))
-    //   console.log('#4', stringer.searchParams.get('url').split(this.slash))
-    //   console.log('#5', stringer.searchParams.get('url').split(this.slash).pop())
-      this.soundID = stringer.searchParams.get('url').split(this.slash).pop()
-    },
-    sendSoundID () {
-      this.db.collection('uid').doc(this.userid).set({
-        scid: `${this.soundID}`
-      },{merge: true})
-        // .then(function () {
-        //   console.log('Document successfully written!')
-        // })
-        // .catch(function (error) {
-        //   console.error('Error writing document: ', error)
-        // })
+    // getSoundID () {
+    //   var stringer = new URL(this.scurl)
+    // //   console.log('#1', this)
+    // //   console.log('#2', stringer)
+    // //   console.log('#3', stringer.searchParams.get('url'))
+    // //   console.log('#4', stringer.searchParams.get('url').split(this.slash))
+    // //   console.log('#5', stringer.searchParams.get('url').split(this.slash).pop())
+    //   this.soundID = stringer.searchParams.get('url').split(this.slash).pop()
+    // },
+    // sendSoundID () {
+    //   this.db.collection('uid').doc(this.userid).set({
+    //     scid: `${this.soundID}`
+    //   },{merge: true})
+    //     // .then(function () {
+    //     //   console.log('Document successfully written!')
+    //     // })
+    //     // .catch(function (error) {
+    //     //   console.error('Error writing document: ', error)
+    //     // })
     },
     sendAll () {
       this.db.collection('uid').doc(this.userid).set({
