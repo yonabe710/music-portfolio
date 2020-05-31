@@ -79,13 +79,14 @@
 
           <article class="tile is-child notification is-gainsboro">
             <p class="title">Instagram</p>
-            <p>{{this.instaID}}</p>
+            <!-- <p>{{this.instaID}}</p> -->
             <div class="instagram-content">
               <instagram-embed 
                 class="instagram-picture"
                 :url="this.instaID"
                 :key="instaID"
                 :max-width=500
+                v-if="instaID"
               />
             </div>
             <form @submit.prevent="submitForm">
