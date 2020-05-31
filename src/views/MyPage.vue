@@ -91,16 +91,16 @@
                   <Tweet :id="tweetID" :key="tweetID"></Tweet>
                 </div>
             </article>
-            <article class="tile is-child notification is-gainsboro">
+            <!-- <article class="tile is-child notification is-gainsboro">
                 <p class="title">Sound sample</p>
                 <div class="soundcloud">
-                <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" :src="`https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/${this.soundID}&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true`"></iframe>
+                <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" :src="`https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/${this.soundID}&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true`"></iframe> -->
                 <!-- <router-link to='/sceditor'><button type=“button”>edit</button></router-link> -->
-                <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/633309999&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
+                <!-- <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/633309999&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
                 <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/568198284&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
                 <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/679809245&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
-                </div>
-            </article>
+                </div> -->
+            <!-- </article> -->
           </div>
         </div>
     </div>
@@ -133,7 +133,7 @@ export default {
       videoID: '',
       instaID: '',
       tweetID: '',
-      soundID: '',
+      // soundID: '',
       userid: firebase.auth().currentUser.uid,
       // twuserid: firebase.auth().currentUser.username,
       twusername: firebase.auth().currentUser.displayName,
@@ -161,13 +161,13 @@ export default {
         console.log('Document data:', doc.data().yturl)
         console.log('Document data:', doc.data().igurl)
         console.log('Document data:', doc.data().twid)
-        console.log('Document data:', doc.data().scid)
+        // console.log('Document data:', doc.data().scid)
         console.log(self.twphotoUrl)
         self.profile = doc.data().pfcontent
         self.videoID = doc.data().yturl
         self.instaID = doc.data().igurl
         self.tweetID = doc.data().twid
-        self.soundID = doc.data().scid
+        // self.soundID = doc.data().scid
       } else {
       // doc.data() will be undefined in this case
         console.log('No such document!')
