@@ -312,7 +312,7 @@ export default {
     //     // .catch(function (error) {
     //     //   console.error('Error writing document: ', error)
     //     // })
-    },
+    // },
     sendAll () {
       this.db.collection('uid').doc(this.userid).set({
         pfcontent: `${this.profile}`,
