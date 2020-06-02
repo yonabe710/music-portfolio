@@ -105,7 +105,7 @@
         <div class="tile is-parent is-vertical is-4">
           <article class="tile is-child notification is-gainsboro">
             <p class="title">Twitter</p>
-            <div class="content" style="width:832px;" :options="{ cards: 'hidden' }">
+            <div class="content" :options="{ cards: 'hidden' }">
               <Tweet :id="tweetID" :key="tweetID" v-if="tweetID"></Tweet>
             </div>
             <form @submit.prevent="submitForm">
@@ -361,10 +361,6 @@ a {
   text-decoration: underline;
 }
 
-.twitter-content{
-  background-color:#fff;
-  margin: auto;
-}
 
 .texterror{
   font-size:30px;
@@ -453,6 +449,8 @@ font-size:26px;
   border: solid 3px #000000;
 }
 .twitter-content{
+  background-color:#fff;
+  margin: auto;
   border: solid 3px #000000;
 }
 .instagram-content{

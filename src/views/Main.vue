@@ -86,7 +86,7 @@
           <div class="tile is-parent is-vertical is-4">
             <article class="tile is-child notification is-gainsboro">
               <p class="title">Twitter</p>
-              <div class="twitter-content" style="width:500px;">
+              <div class="twitter-content">
                 <Tweet :id="tweetID" :key="tweetID" v-if="tweetID"></Tweet>
               </div>
             </article>
