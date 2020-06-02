@@ -87,7 +87,7 @@
                 <p class="title">Twitter</p>
                   <!-- Content -->
                 <div class="twitter-content">
-                  <Tweet :id="tweetID" :key="tweetID"></Tweet>
+                  <Tweet :id="tweetID" :key="tweetID" v-if="tweetID"></Tweet>
                 </div>
             </article>
             <!-- <article class="tile is-child notification is-gainsboro">
