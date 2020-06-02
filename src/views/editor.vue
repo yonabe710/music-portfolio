@@ -66,8 +66,8 @@
               <iframe width="854" height="400" :src="this.videoID" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
             <form @submit.prevent="submitForm">
-              <div>
-                <textarea v-model = "yturl" @input="$v.yturl.$reset()" @blur="$v.yturl.$touch()" placeholder="YouTubeのURLをコピーして貼付け" cols="50" rows="5"></textarea>
+              <div >
+                <textarea v-model = "yturl" @input="$v.yturl.$reset()" @blur="$v.yturl.$touch()" placeholder="YouTubeのURLをコピーして貼付け" cols="40" rows="5"></textarea>
               </div>
               <div v-if="$v.yturl.$error">
                 <span class="texterror">YouTubeのURLでお願い！</span>
@@ -91,7 +91,7 @@
             </div>
             <form @submit.prevent="submitForm">
               <div>
-                <textarea v-model = "igurl" @input="$v.igurl.$reset()" @blur="$v.igurl.$touch()" cols="50" rows="5" placeholder="Instagramのリンクをコピーして貼付け"></textarea>
+                <textarea v-model = "igurl" @input="$v.igurl.$reset()" @blur="$v.igurl.$touch()" cols="40" rows="5" placeholder="Instagramのリンクをコピーして貼付け"></textarea>
               </div>
               <div v-if="$v.igurl.$error">
                 <span class="texterror">InstagramのURLでお願い！</span>
@@ -109,7 +109,7 @@
               <Tweet :id="tweetID" :key="tweetID" v-if="tweetID"></Tweet>
             <form @submit.prevent="submitForm">
               <div>
-                <textarea v-model = "twurl" @input="$v.twurl.$reset()" @blur="$v.twurl.$touch()" cols="50" rows="5" placeholder="Tweetのリンクをコピーして貼付け"></textarea>
+                <textarea v-model = "twurl" @input="$v.twurl.$reset()" @blur="$v.twurl.$touch()" cols="40" rows="5" placeholder="Tweetのリンクをコピーして貼付け"></textarea>
               </div>
               <div v-if="$v.twurl.$error">
                 <span class="texterror">TwitterのURLでお願い！</span>
