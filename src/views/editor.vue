@@ -144,7 +144,7 @@
       <div class="tile">
         <div class="tile is-parent is-vertical">
             <article class="tile is-child notification is-light">
-              <p class="title">yonabenonabe</p>
+              <p class="title">yonabe project</p>
               <div class="content">
                 <!-- Content -->
               </div>

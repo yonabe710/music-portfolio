@@ -109,7 +109,7 @@
         <div class="tile is-parent is-vertical">
             <article class="tile is-child notification is-light">
               <div class="content">
-                <p class="title">yonabenonabe</p>
+                <p class="title">yonabe project</p>
               </div>
             </article>
         </div>
