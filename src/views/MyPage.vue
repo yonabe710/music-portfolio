@@ -213,13 +213,13 @@ a {
   text-decoration: underline;
 }
 
-/* -----------------------フォローボタンのstylesheet----------------------------- */
+/* -----------------------フォローボタンのstylesheet-----------------------------
 .follow{
   text-align : right;
 }
 
 /* ボタン全体 */
-.flowbtn7{
+/* .flowbtn7{
 border-radius:50%;
 position:relative;
 display:inline-block;
@@ -229,55 +229,55 @@ font-size:30px;
 color:#fff!important;
 text-decoration:none;
 transition:.5s;
-}
+} */
 /* アイコンをど真ん中に*/
-.flowbtn7 i{
+/* .flowbtn7 i{
 position:absolute;
 top:50%;
 left:50%;
 -ms-transform:translate(-50%,-50%);
 -webkit-transform:translate(-50%,-50%);
 transform:translate(-50%,-50%);
-}
+} */
 /* ulタグの内側余白を０にする */
-ul.snsbtniti{
+/* ul.snsbtniti{
 padding:0!important;
-}
+} */
 /* ボタン全体の位置 */
-.snsbtniti{
+/* .snsbtniti{
 display:flex;
 flex-flow:row wrap;
 justify-content:space-around;
-}
+} */
 
 /* ボタン同士の余白 */
-.snsbtniti li{
+/* .snsbtniti li{
 flex:0 0 33%;
 text-align:center !important;
-}
+} */
 
 /* ボタンにマウスを乗せた時 */
-.flowbtn7:hover{
+/* .flowbtn7:hover{
 -webkit-transform:translateY(-5px);
 -ms-transform:translateY(-5px);
 transform:translateY(-5px);
-}
+} */
 
 /* Twitter */
-.fl_tw7{
+/* .fl_tw7{
 background:linear-gradient(135deg, #13f1fc 0%,#0470dc 100%);
-}
+} */
 
 /* Facebook */
-.fl_fb7{
+/* .fl_fb7{
 background: linear-gradient(135deg, #6699ff 0%,#3b5998 100%);
-}
+} */
 
 /* YouTube */
-.fl_yu7{
+/* .fl_yu7{
 background:linear-gradient(135deg, #f5515f 0%,#c9293c 100%);
 font-size:26px;
-}
+} */
 /* -----------------------フォローボタンのstylesheet----------------------------- */
 .movie-wrap {
   position: relative;
