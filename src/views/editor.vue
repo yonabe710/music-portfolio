@@ -107,6 +107,7 @@
             <p class="title">Twitter</p>
             <div class="content" style="width:832px;" :options="{ cards: 'hidden' }">
               <Tweet :id="tweetID" :key="tweetID" v-if="tweetID"></Tweet>
+            </div>
             <form @submit.prevent="submitForm">
               <div>
                 <textarea v-model = "twurl" @input="$v.twurl.$reset()" @blur="$v.twurl.$touch()" cols="40" rows="5" placeholder="Tweetのリンクをコピーして貼付け"></textarea>
@@ -117,7 +118,6 @@
               <button type=“submit” @click="getTweetID">change</button>
               <button type=“submit” @click="sendTweetID">save</button>
             </form>
-            </div>
           </article>
           
           <!-- <article class="tile is-child notification is-gainsboro">
