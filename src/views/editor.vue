@@ -48,7 +48,7 @@
             <h2 class="subtitle">
               {{profile}}
             </h2>
-            <textarea v-model = "profile" cols="50" rows="5"></textarea>
+            <textarea v-model = "profile" cols="40" rows="5"></textarea>
             <button type=“submit” @click="sendProfile" >save</button>
             <!-- <ul class="follow">
               <li><a href="https://twitter.com/k_onshitsu" class="flowbtn7 fl_tw7"><i><font-awesome-icon :icon = "['fab','twitter']"></font-awesome-icon></i></a></li>
