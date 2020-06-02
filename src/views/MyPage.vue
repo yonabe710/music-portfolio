@@ -78,7 +78,6 @@
                   class="instagram-picture"
                   v-if="instaID"
                   :url="instaID"
-                  :max-width=500
                 />
               </div>
             </article>
@@ -87,7 +86,7 @@
             <article class="tile is-child notification is-gainsboro">
                 <p class="title">Twitter</p>
                   <!-- Content -->
-                <div class="twitter-content" style="width:500px;">
+                <div class="twitter-content">
                   <Tweet :id="tweetID" :key="tweetID"></Tweet>
                 </div>
             </article>
@@ -214,11 +213,6 @@ a {
   text-decoration: underline;
 }
 
-.twitter-content{
-  background-color:#fff;
-  margin: auto;
-}
-
 /* -----------------------フォローボタンのstylesheet----------------------------- */
 .follow{
   text-align : right;
@@ -300,16 +294,21 @@ font-size:26px;
   border: solid 3px #000000;
 }
 .twitter-content{
+  background-color:#fff;
+  margin: auto;
   border: solid 3px #000000;
 }
+
 .instagram-content{
   height: 1000px;
+  /* margin: auto; */
   box-sizing: border-box;
+  /* text-align: center */
 }
 
 .instagram-picture {
   height: 100%;
-  border: solid 3px #000000;
+  /* border: solid 3px hsl(0, 0%, 0%); */
 }
 .instagram-media{
   height :1000px !important;
@@ -332,6 +331,6 @@ font-size:26px;
   height: 100%;
   width: 100% !important;
   /* max-width: initial !important; */
-  border: solid 3px #000000;
+  border: solid 3px #000000 !important;
 }
 </style>
