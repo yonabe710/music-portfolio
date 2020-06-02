@@ -15,6 +15,9 @@ $instagram-invert: findColorInvert($instagram);
 $soundcloud: #FE9A2E;
 $soundcloud-invert: findColorInvert($soundcloud);
 
+// Set padding
+$notification-padding: 1.25rem 1.5rem 1.25rem 1.5rem !default;
+
 // Setup $colors to use as bulma classes (e.g. 'is-twitter')
 $colors: (
     "white": ($white, $black),
