@@ -295,9 +295,13 @@ font-size:26px;
 }
 .twitter-content{
   background-color:#fff;
-  margin: auto;
+  /* margin: auto; */
   border: solid 3px #000000;
 }
+
+/* .twitter-tweet{
+  margin-top:0px;
+} */
 
 .instagram-content{
   height: 1000px;
@@ -312,6 +316,7 @@ font-size:26px;
 }
 .instagram-media{
   height :1000px !important;
+  
 }
 .soundcloud{
   margin-top: 50px;
@@ -327,10 +332,15 @@ font-size:26px;
 </style>
 
 <style>
+.twitter-tweet {
+ margin-top:0px !important;
+ margin-bottom:0px !important;
+}
+
 .instagram-picture > iframe {
   height: 100%;
-  width: 100% !important;
-  /* max-width: initial !important; */
+  /* width: 100% !important; */
+  min-width: 303px !important;
   border: solid 3px #000000 !important;
 }
 </style>

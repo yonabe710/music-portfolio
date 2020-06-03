@@ -85,7 +85,6 @@
                 class="instagram-picture"
                 :url="this.instaID"
                 :key="instaID"
-                :max-width=500
                 v-if="instaID"
               />
             </div>
