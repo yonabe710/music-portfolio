@@ -448,21 +448,26 @@ font-size:26px;
   border: solid 3px #000000;
 }
 .twitter-content{
-  background-color:#fff;
-  margin: auto;
-  border: solid 3px #000000;
+  margin:0 auto !important;
 }
+
+/* .twitter-tweet{
+  margin-top:0px;
+} */
+
 .instagram-content{
-  height: 1000px;
+  height: 1100px;
   box-sizing: border-box;
+  /* text-align: center */
 }
 
 .instagram-picture {
   height: 100%;
-  border: solid 3px #000000;
+  /* border: solid 3px hsl(0, 0%, 0%); */
 }
 .instagram-media{
   height :1000px !important;
+  
 }
 .soundcloud{
   margin-top: 50px;
@@ -471,24 +476,10 @@ font-size:26px;
   border: solid 3px #000000;
 }
 
-.all-save{
-  position: relative;
-  display: inline-block;
-  padding: 0.25em 0.5em;
-  text-decoration: none;
-  color: #FFF;
-  background: #fd9535;/*背景色*/
-  border-bottom: solid 2px #d27d00;/*少し濃い目の色に*/
-  border-radius: 4px;/*角の丸み*/
-  box-shadow: inset 0 2px 0 rgba(255,255,255,0.2), 0 2px 2px rgba(0, 0, 0, 0.19);
-  font-weight: bold;
-  font-size: 30px;
-}
+/* .tile.is-child{
+  box-shadow: 5px 5px 5px 5px rgba(0,0,0,0.4);
+} */
 
-.all-save button:active{
-  border-bottom: solid 2px #fd9535;
-  box-shadow: 0 0 2px rgba(0, 0, 0, 0.30);
-}
 
 .complete{
   position: relative;
@@ -510,10 +501,19 @@ font-size:26px;
 </style>
 
 <style>
+.twitter-tweet {
+ margin-top:0px !important;
+ margin-bottom:0px !important;
+ width:100% !important ;
+ border: solid 3px #000000;
+}
+
 .instagram-picture > iframe {
   height: 100%;
   width: 100% !important;
-  /* max-width: initial !important; */
-  border: solid 3px #000000;
+  margin:0 auto !important;
+  min-width: 150px !important;
+  /* text-align: center !important; */
+  border: solid 3px #000000 !important;
 }
 </style>

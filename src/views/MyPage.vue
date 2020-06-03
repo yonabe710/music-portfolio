@@ -294,9 +294,7 @@ font-size:26px;
   border: solid 3px #000000;
 }
 .twitter-content{
-  background-color:#fff;
-  /* margin: auto; */
-  border: solid 3px #000000;
+  margin:0 auto !important;
 }
 
 /* .twitter-tweet{
@@ -304,8 +302,7 @@ font-size:26px;
 } */
 
 .instagram-content{
-  height: 1000px;
-  /* margin: auto; */
+  height: 1100px;
   box-sizing: border-box;
   /* text-align: center */
 }
@@ -335,12 +332,16 @@ font-size:26px;
 .twitter-tweet {
  margin-top:0px !important;
  margin-bottom:0px !important;
+ width:100% !important ;
+ border: solid 3px #000000;
 }
 
 .instagram-picture > iframe {
   height: 100%;
-  /* width: 100% !important; */
-  min-width: 303px !important;
+  width: 100% !important;
+  margin:0 auto !important;
+  min-width: 150px !important;
+  /* text-align: center !important; */
   border: solid 3px #000000 !important;
 }
 </style>

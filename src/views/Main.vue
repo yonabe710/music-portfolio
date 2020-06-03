@@ -77,7 +77,6 @@
                   class="instagram-picture"
                   :key="instaID"
                   :url="instaID"
-                  :max-width=500
                   v-if="instaID"
                 />
               </div>
@@ -319,37 +318,54 @@ font-size:26px;
   border: solid 3px #000000;
 }
 .twitter-content{
-  background-color:#fff;
-  margin: auto;
-  border: solid 3px #000000;
+  margin:0 auto !important;
 }
 
+/* .twitter-tweet{
+  margin-top:0px;
+} */
+
 .instagram-content{
-  height: 1000px;
+  height: 1100px;
   box-sizing: border-box;
+  /* text-align: center */
 }
 
 .instagram-picture {
   height: 100%;
-  border: solid 3px #000000;
+  /* border: solid 3px hsl(0, 0%, 0%); */
 }
 .instagram-media{
   height :1000px !important;
+  
 }
-
 .soundcloud{
   margin-top: 50px;
   padding: 30px 10px;
   background-color: #fff;
   border: solid 3px #000000;
 }
+
+/* .tile.is-child{
+  box-shadow: 5px 5px 5px 5px rgba(0,0,0,0.4);
+} */
+
 </style>
 
 <style>
+.twitter-tweet {
+ margin-top:0px !important;
+ margin-bottom:0px !important;
+ width:100% !important ;
+ border: solid 3px #000000;
+}
+
 .instagram-picture > iframe {
   height: 100%;
   width: 100% !important;
-  /* max-width: initial !important; */
-  border: solid 3px #000000;
+  margin:0 auto !important;
+  min-width: 150px !important;
+  /* text-align: center !important; */
+  border: solid 3px #000000 !important;
 }
 </style>
