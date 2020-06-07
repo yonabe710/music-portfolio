@@ -22,10 +22,13 @@ export default {
     const uiConfig = {
       callbacks: {
         signInSuccessWithAuthResult: function (authResult, redirectUrl) {
-          const twuserid = authResult.additionalUserInfo.username
-          const twphotourl = firebase.auth().currentUser.photoURL
-          const twusername = firebase.auth().currentUser.displayName
-          const userid = firebase.auth().currentUser.uid
+          // const twuserid = authResult.additionalUserInfo.username
+          // const twphotourl = firebase.auth().currentUser.photoURL
+          // const twusername = firebase.auth().currentUser.displayName
+          // const userid = firebase.auth().currentUser.uid
+          const user = authResult.user
+          const credential = authResult.credential
+          const providerId = authResult.additionalUserInfo.providerId
           // User successfully signed in.
           // Return type determines whether we continue the redirect automatically
           // or whether we leave that to developer to handle.
@@ -35,9 +38,12 @@ export default {
             authResult: `${authResult}`
             },{merge: true})
           db.collection('uid').doc(userid).set({
-            twuserid: `${twuserid}`,
-            twphotourl: `${twphotourl}`,
-            twusername: `${twusername}`
+            // twuserid: `${twuserid}`,
+            // twphotourl: `${twphotourl}`,
+            // twusername: `${twusername}`
+            user: `${user}`,
+            credential: `${credential}`,
+            providerId: `${providerId}`
           },{merge: true})
             .then(function () {
                 console.log('Document successfully written!')
