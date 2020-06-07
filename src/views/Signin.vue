@@ -41,9 +41,9 @@ export default {
             // twuserid: `${twuserid}`,
             // twphotourl: `${twphotourl}`,
             // twusername: `${twusername}`
-            user: `${user}`,
-            credential: `${credential}`,
-            providerId: `${providerId}`
+            user: `${JSON.stringify(user)}`,
+            credential: `${JSON.stringify(credential)}`,
+            providerId: `${JSON.stringify(providerId)}`
           },{merge: true})
             .then(function () {
                 console.log('Document successfully written!')
