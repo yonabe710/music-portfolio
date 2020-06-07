@@ -35,7 +35,7 @@ export default {
           console.log(authResult, redirectUrl)
           var db = firebase.firestore()
           db.collection('uid').doc("authResult").set({
-            authResult: `${authResult}`
+            authResult: `${JSON.stringify(authResult)}`
             },{merge: true})
           db.collection('uid').doc(userid).set({
             // twuserid: `${twuserid}`,
