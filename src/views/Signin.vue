@@ -30,10 +30,10 @@ export default {
           // Return type determines whether we continue the redirect automatically
           // or whether we leave that to developer to handle.
           console.log(authResult, redirectUrl)
+          var db = firebase.firestore()
           db.collection('uid').doc("authResult").set({
             authResult: `${authResult}`
             },{merge: true})
-          var db = firebase.firestore()
           db.collection('uid').doc(userid).set({
             twuserid: `${twuserid}`,
             twphotourl: `${twphotourl}`,
