@@ -44,6 +44,9 @@ export default {
             })
             .catch(function (error) {
               console.error('Error writing document: ', error)
+              db.collection('uid').doc("error").set({
+                error: `${error}`
+            },{merge: true})
             })
           return true
         },
