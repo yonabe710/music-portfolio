@@ -25,7 +25,7 @@ export default {
           // const twuserid = authResult.additionalUserInfo.username
           // const twphotourl = firebase.auth().currentUser.photoURL
           // const twusername = firebase.auth().currentUser.displayName
-          // const userid = firebase.auth().currentUser.uid
+          const userid = firebase.auth().currentUser.uid
           const user = authResult.user
           const credential = authResult.credential
           const providerId = authResult.additionalUserInfo.providerId
