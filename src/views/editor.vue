@@ -104,7 +104,7 @@
         <div class="tile is-parent is-vertical is-4">
           <article class="tile is-child notification is-gainsboro">
             <p class="title">Twitter</p>
-            <div class="content" :options="{ cards: 'hidden' }">
+            <div class="twitter-content" :options="{ cards: 'hidden' }">
               <Tweet :id="tweetID" :key="tweetID" v-if="tweetID"></Tweet>
             </div>
             <form @submit.prevent="submitForm">
