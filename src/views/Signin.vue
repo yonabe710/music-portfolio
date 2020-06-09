@@ -28,6 +28,7 @@ export default {
           const userid = firebase.auth().currentUser.uid
           const user = authResult.user
           const profile = authResult.additionalUserInfo.profile
+          const isNewUser = authResult.additionalUserInfo.isNewUser
           const providerId = authResult.additionalUserInfo.providerId
           // User successfully signed in.
           // Return type determines whether we continue the redirect automatically
@@ -43,6 +44,7 @@ export default {
             // twusername: `${twusername}`
             user: `${JSON.stringify(user)}`,
             profile: `${JSON.stringify(profile)}`,
+            isNewUser: `${isNewUser}`,
             providerId: `${JSON.stringify(providerId)}`
           },{merge: true})
             .then(function () {
