@@ -27,7 +27,7 @@ export default {
           // const twusername = firebase.auth().currentUser.displayName
           const userid = firebase.auth().currentUser.uid
           const user = authResult.user
-          const credential = authResult.credential
+          const profile = authResult.additionalUserInfo.profile
           const providerId = authResult.additionalUserInfo.providerId
           // User successfully signed in.
           // Return type determines whether we continue the redirect automatically
@@ -42,7 +42,7 @@ export default {
             // twphotourl: `${twphotourl}`,
             // twusername: `${twusername}`
             user: `${JSON.stringify(user)}`,
-            credential: `${JSON.stringify(credential)}`,
+            profile: `${JSON.stringify(profile)}`,
             providerId: `${JSON.stringify(providerId)}`
           },{merge: true})
             .then(function () {
