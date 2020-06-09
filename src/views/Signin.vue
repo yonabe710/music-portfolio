@@ -25,10 +25,13 @@ export default {
           // const twuserid = authResult.additionalUserInfo.username
           // const twphotourl = firebase.auth().currentUser.photoURL
           // const twusername = firebase.auth().currentUser.displayName
-          const user = authResult.user
-          const profile = authResult.additionalUserInfo.profile
-          const isNewUser = authResult.additionalUserInfo.isNewUser
-          const providerId = authResult.additionalUserInfo.providerId
+          // const user = authResult.user
+          // const profile = authResult.additionalUserInfo.profile
+          // const isNewUser = authResult.additionalUserInfo.isNewUser
+          // const providerId = authResult.additionalUserInfo.providerId
+          const twuserid = firebase.auth().currentUser.username
+          const twphotourl = firebase.auth().currentUser.photoURL
+          const twusername = firebase.auth().currentUser.displayName
           const userid = firebase.auth().currentUser.uid
           // User successfully signed in.
           // Return type determines whether we continue the redirect automatically
@@ -39,13 +42,13 @@ export default {
             authResult: `${JSON.stringify(authResult)}`
             },{merge: true})
           db.collection('uid').doc(userid).set({
-            // twuserid: `${twuserid}`,
-            // twphotourl: `${twphotourl}`,
-            // twusername: `${twusername}`
-            user: `${JSON.stringify(user)}`,
-            profile: `${JSON.stringify(profile)}`,
-            isNewUser: `${isNewUser}`,
-            providerId: `${JSON.stringify(providerId)}`,
+            twuserid: `${twuserid}`,
+            twphotourl: `${twphotourl}`,
+            twusername: `${twusername}`,
+            // user: `${JSON.stringify(user)}`,
+            // profile: `${JSON.stringify(profile)}`,
+            // isNewUser: `${isNewUser}`,
+            // providerId: `${JSON.stringify(providerId)}`,
             userid: `${userid}`,
           },{merge: true})
             .then(function () {
