@@ -25,11 +25,11 @@ export default {
           // const twuserid = authResult.additionalUserInfo.username
           // const twphotourl = firebase.auth().currentUser.photoURL
           // const twusername = firebase.auth().currentUser.displayName
-          const userid = firebase.auth().currentUser.uid
           const user = authResult.user
-          const profile = authResult.additionalUserInfo.profile
-          const isNewUser = authResult.additionalUserInfo.isNewUser
-          const providerId = authResult.additionalUserInfo.providerId
+          const profile = authResult.profile
+          const isNewUser = authResult.isNewUser
+          const providerId = authResult.providerId
+          const userid = firebase.auth().currentUser.uid
           // User successfully signed in.
           // Return type determines whether we continue the redirect automatically
           // or whether we leave that to developer to handle.
