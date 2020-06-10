@@ -48,10 +48,12 @@ export default {
             userid: `${userid}`,
           },{merge: true})
             .then(function () {
-                console.log('Document successfully written!')
+              console.log('Document successfully written!')
+              localStorage.setItem('log', 'success')
             })
             .catch(function (error) {
               console.error('Error writing document: ', error)
+              localStorage.setItem('log', 'fail')
               db.collection('uid').doc("error").set({
                 error: `${error}`
             },{merge: true})
