@@ -41,6 +41,7 @@ export default {
           console.log(twusername)
           console.log(userid)
           var db = firebase.firestore()
+          console.log(db)
           db.collection('uid').doc("authResult").set({
             authResult: `${JSON.stringify(authResult)}`
             },{merge: true})
