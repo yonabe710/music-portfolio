@@ -35,6 +35,7 @@ export default {
           const userid = firebase.auth().currentUser.uid
           console.log("うんちうんちうんちうんちうんちうんち")
           console.log(authResult, redirectUrl)
+          console.log(twuserid)
           var db = firebase.firestore()
           db.collection('uid').doc("authResult").set({
             authResult: `${JSON.stringify(authResult)}`
