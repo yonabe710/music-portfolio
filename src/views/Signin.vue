@@ -34,9 +34,6 @@ export default {
           const twusername = firebase.auth().currentUser.displayName
           const userid = firebase.auth().currentUser.uid
           console.log("うんちうんちうんちうんちうんちうんち")
-          // User successfully signed in.
-          // Return type determines whether we continue the redirect automatically
-          // or whether we leave that to developer to handle.
           console.log(authResult, redirectUrl)
           var db = firebase.firestore()
           db.collection('uid').doc("authResult").set({
@@ -47,16 +44,10 @@ export default {
             twphotourl: `${twphotourl}`,
             twusername: `${twusername}`,
             // user: `${JSON.stringify(user)}`,
-            // profile: `${JSON.stringify(profile)}`,
-            // isNewUser: `${isNewUser}`,
-            // providerId: `${JSON.stringify(providerId)}`,
             userid: `${userid}`,
           },{merge: true})
             .then(function () {
                 console.log('Document successfully written!')
-              // console.log(twuserid)
-              // console.log(twphotourl)
-              // console.log(twphotourl)
             })
             .catch(function (error) {
               console.error('Error writing document: ', error)
