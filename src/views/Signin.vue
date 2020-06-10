@@ -33,6 +33,7 @@ export default {
           const twphotourl = firebase.auth().currentUser.photoURL
           const twusername = firebase.auth().currentUser.displayName
           const userid = firebase.auth().currentUser.uid
+          console.log("うんちうんちうんちうんちうんちうんち")
           // User successfully signed in.
           // Return type determines whether we continue the redirect automatically
           // or whether we leave that to developer to handle.
